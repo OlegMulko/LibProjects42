@@ -1,0 +1,8 @@
+# ignore .DC_Store
+.DS_Store
+# ignore all files .o
+*.o
+# ignore file libft.a
+*.a
+#ignore vscode files
+.vscode/
