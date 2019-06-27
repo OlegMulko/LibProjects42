@@ -6,19 +6,21 @@
 #    By: filip <filip@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/05/21 01:14:59 by filip            ###   ########.fr        #
+#    Updated: 2019/06/27 22:58:28 by ggrimes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libftstr.a
 
 SRC_SEARCH =srcs/ft_get_cnt_words.c\
+			srcs/ft_is_array_contain.c\
+			srcs/ft_last_word_pos.c\
 
 SRC = $(wildcard $(SRC_SEARCH))
 
 OBJ = $(SRC:.c=.o)
 
-INCLUDES = -I includes
+INCLUDES = -I includes -I ../libft/includes
 
 all: $(NAME)
 

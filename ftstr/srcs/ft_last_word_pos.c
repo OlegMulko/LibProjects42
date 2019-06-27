@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_cnt_words.c                                 :+:      :+:    :+:   */
+/*   get_last_word_pos.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggrimes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/27 21:18:32 by ggrimes           #+#    #+#             */
-/*   Updated: 2019/06/27 21:18:36 by ggrimes          ###   ########.fr       */
+/*   Created: 2019/06/27 21:17:54 by ggrimes           #+#    #+#             */
+/*   Updated: 2019/06/27 21:17:57 by ggrimes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ftstr.h"
 
-size_t ft_get_cnt_words(const char *str, char spr)
+char    *ft_last_word_pos(const char *str, char *seps)
 {
-    size_t  i;
-    size_t  count;
+    size_t  len;
     short   in_word;
 
-    count = 0;
-    if (!str)
-        return (count);
-    i = -1;
+    if (!str || !seps)
+        return (NULL);
+    if (!(len = ft_strlen(str)))
+        return (NULL);
     in_word = 0;
-    while (str[++i])
+    while ((int)--len != -1)
     {
-        if (str[i] != spr && !in_word)
-        {
-            in_word = !in_word;
-            count++;
-        }
-        if (str[i] == spr && in_word)
+        if (ft_is_str_contain(seps, str[len]) && in_word)
+            return ((char *)str + (len + 1));
+        if (!ft_is_str_contain(seps, str[len]) && !in_word)
             in_word = !in_word;
     }
-    return (count);
+    return ((in_word) ? (char *)str : NULL);
 }
