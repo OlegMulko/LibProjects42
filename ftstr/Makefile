@@ -13,7 +13,7 @@
 NAME=libftstr.a
 
 SRC_SEARCH =srcs/ft_get_cnt_words.c\
-			srcs/ft_is_array_contain.c\
+			srcs/ft_is_str_contain.c\
 			srcs/ft_last_word_pos.c\
 
 SRC = $(wildcard $(SRC_SEARCH))
