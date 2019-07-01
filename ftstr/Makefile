@@ -17,6 +17,7 @@ SRC_SEARCH =srcs/ft_get_cnt_words.c\
 			srcs/ft_last_word_pos.c\
 			srcs/ft_del_sym_str.c\
 			srcs/ft_match.c\
+			srcs/ft_num_match.c\
 
 SRC = $(wildcard $(SRC_SEARCH))
 

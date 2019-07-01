@@ -10,5 +10,6 @@ char    *ft_last_word_pos(const char *str, char *seps);
 int     ft_is_str_contain(char *str, char sym);
 char    *ft_del_sym_str(char *str, char *delsym);
 int     match(char *s1, char *s2);
+size_t  ft_num_match(char **str, char *arg);
 
 #endif
