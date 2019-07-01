@@ -1,6 +1,6 @@
 # include "ftstr.h"
 
-int	match(char *s1, char *s2)
+int	ft_match(char *s1, char *s2)
 {
 	if (!s1 || !s2)
 		return (0);

@@ -10,7 +10,7 @@ size_t	ft_num_match(char **str, char *arg)
 	if (!str || !arg)
 		return (count);
 	while (str[++i])
-		if (match(str[i], arg))
+		if (ft_match(str[i], arg))
 			count++;
 	return (count);
 }
