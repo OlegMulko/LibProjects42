@@ -1,4 +1,16 @@
-# include "ftstr.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_match.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ggrimes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/03 00:21:10 by ggrimes           #+#    #+#             */
+/*   Updated: 2019/07/03 00:22:51 by ggrimes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ftstr.h"
 
 int	ft_match(char *s1, char *s2)
 {
@@ -8,7 +20,7 @@ int	ft_match(char *s1, char *s2)
 		return (1);
 	else if (*s1 != '\0' && *s2 == '*')
 		return (ft_match(s1 + 1, s2) || ft_match(s1, s2 + 1));
-	else if(*s1 == '\0' && *s2 == '*')
+	else if (*s1 == '\0' && *s2 == '*')
 		return (ft_match(s1, s2 + 1));
 	else if (*s1 == *s2)
 		return (ft_match(s1 + 1, s2 + 1));
