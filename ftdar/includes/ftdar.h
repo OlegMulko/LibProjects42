@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ftdar.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrimes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ggrimes <ggrimes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 23:04:23 by ggrimes           #+#    #+#             */
-/*   Updated: 2019/07/02 23:05:13 by ggrimes          ###   ########.fr       */
+/*   Updated: 2019/07/02 23:17:48 by ggrimes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft.h"
+# define CHECK(val) if (!val) return (0)
+# define CHECKV(val) if (!val) return
 
-int	ft_check_exc(char *str, char **exc);
+int		ft_check_exc(char *str, char **exc);
+char	**ft_dar_add(char **dest, char **src, char **exc);
 
 #endif

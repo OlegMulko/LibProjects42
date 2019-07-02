@@ -13,6 +13,7 @@
 NAME=libftdar.a
 
 SRC_SEARCH =srcs/ft_check_exec.c\
+			srcs/ft_dar_add.c\
 
 SRC = $(wildcard $(SRC_SEARCH))
 
