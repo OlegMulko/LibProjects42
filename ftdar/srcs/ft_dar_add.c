@@ -6,7 +6,7 @@
 /*   By: ggrimes <ggrimes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 23:10:29 by ggrimes           #+#    #+#             */
-/*   Updated: 2019/07/02 23:48:25 by ggrimes          ###   ########.fr       */
+/*   Updated: 2019/07/02 23:50:54 by ggrimes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**ft_dar_add(char **dest, char **src, char **exc)
 			dar[i] = ft_strdup(dest[i]);
 	j = -1;
 	while (src[++j])
-		if (!ft_cheak_exc(src[j], exc))
+		if (!ft_check_exc(src[j], exc))
 			dar[i++] = ft_strdup(src[j]);
 	dar[i] = NULL;
 	return (dar);
