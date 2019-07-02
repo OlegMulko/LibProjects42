@@ -1,6 +1,6 @@
 # include "ftdir"
 
-short	dir_flag(short flag, unsigned char d_type)
+short	ft_dir_flag(short flag, unsigned char d_type)
 {
 	if (!flag)
 		return (1);

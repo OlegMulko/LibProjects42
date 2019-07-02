@@ -7,6 +7,7 @@
 # include <dirent.h>
 
 size_t	ft_size_dir(char *dirpath);
-short	dir_flag(short flag, unsigned char d_type);
+short	ft_dir_flag(short flag, unsigned char d_type);
+char    **ft_dir_content(char *dirpath, short flag);
 
 #endif
