@@ -13,6 +13,7 @@
 NAME=libftdir.a
 
 SRC_SEARCH =srcs/ft_size_dir.c\
+			srcs/ft_dir_flag.c\
 
 SRC = $(wildcard $(SRC_SEARCH))
 
