@@ -1,5 +1,5 @@
-#ifndef FT_STRING_H
-# define FT_STRING_H
+#ifndef FTSTR_H
+# define FTSTR_H
 
 # include <unistd.h>
 # include <stdlib.h>

@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libftstr.a
+NAME=libftdir.a
 
 SRC_SEARCH =srcs/ft_get_cnt_words.c\
 			srcs/ft_is_str_contain.c\
