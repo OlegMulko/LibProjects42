@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftdar.h                                            :+:      :+:    :+:   */
+/*   ft_dar_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggrimes <ggrimes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/02 23:04:23 by ggrimes           #+#    #+#             */
-/*   Updated: 2019/07/02 23:30:09 by ggrimes          ###   ########.fr       */
+/*   Created: 2019/07/02 23:24:54 by ggrimes           #+#    #+#             */
+/*   Updated: 2019/07/02 23:27:05 by ggrimes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FTDAR_H
-# define FTDAR_H
+#include "ftdar.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
-# define CHECK(val) if (!val) return (0)
-# define CHECKV(val) if (!val) return
+size_t	ft_dar_size(char **dar)
+{
+	size_t	size;
 
-int		ft_check_exc(char *str, char **exc);
-char	**ft_dar_add(char **dest, char **src, char **exc);
-size_t	ft_dar_size(char **dar);
-
-#endif
+	size = 0;
+	if (!dar)
+		return (size);
+	while (dar[size])
+		size++;
+	return (size);
+}

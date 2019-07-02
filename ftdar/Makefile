@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: filip <filip@student.42.fr>                +#+  +:+       +#+         #
+#    By: ggrimes <ggrimes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/07/02 22:58:16 by ggrimes          ###   ########.fr        #
+#    Updated: 2019/07/02 23:31:07 by ggrimes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME=libftdar.a
 
 SRC_SEARCH =srcs/ft_check_exec.c\
 			srcs/ft_dar_add.c\
+			srcs/ft_dar_size.c\
 
 SRC = $(wildcard $(SRC_SEARCH))
 
