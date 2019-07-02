@@ -6,7 +6,7 @@
 /*   By: ggrimes <ggrimes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 23:10:29 by ggrimes           #+#    #+#             */
-/*   Updated: 2019/07/02 23:50:54 by ggrimes          ###   ########.fr       */
+/*   Updated: 2019/07/02 23:54:29 by ggrimes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**ft_dar_add(char **dest, char **src, char **exc)
 		return (NULL);
 	len = ft_dar_size(dest);
 	len += ft_dar_size(src);
-	CHECK((dar = (char **)malloc(sizeof(char *) * len + 1)));
+	CHECK((dar = (char **)malloc(sizeof(char *) * (len + 1))));
 	i = (dest) ? -1 : 0;
 	if (dest)
 		while (dest[++i])
