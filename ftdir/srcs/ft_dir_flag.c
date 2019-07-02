@@ -1,4 +1,4 @@
-# include "ftdir"
+# include "ftdir.h"
 
 short	ft_dir_flag(short flag, unsigned char d_type)
 {
