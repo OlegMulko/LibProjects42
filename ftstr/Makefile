@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/07/05 18:29:37 by aashara-         ###   ########.fr        #
+#    Updated: 2019/07/05 20:28:46 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC_SEARCH =srcs/ft_get_cnt_words.c\
 			srcs/ft_match.c\
 			srcs/ft_num_match.c\
 			srcs/ft_strdel_el.c\
-			srcs/ft_strcat_realloc.c\
+			srcs/ft_strdup_realloc.c\
 			srcs/ft_stradd.c\
 
 SRC = $(wildcard $(SRC_SEARCH))

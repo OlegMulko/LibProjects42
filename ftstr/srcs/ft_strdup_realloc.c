@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat_realloc.c                                :+:      :+:    :+:   */
+/*   ft_strdup_realloc.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 18:22:33 by aashara-          #+#    #+#             */
-/*   Updated: 2019/07/05 18:23:16 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/07/05 20:28:27 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftstr.h"
 
-char	*ft_strcat_realloc(char *str, short len)
+char	*ft_strdup_realloc(char *str, short len)
 {
 	char	*arr;
 

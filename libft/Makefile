@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: filip <filip@student.42.fr>                +#+  +:+       +#+         #
+#    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/05/21 01:14:59 by filip            ###   ########.fr        #
+#    Updated: 2019/07/05 19:03:29 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,8 +71,6 @@ SRC_SEARCH =srcs/ft_strlen.c\
 	  srcs/ft_lstiter.c\
 	  srcs/ft_lstmap.c\
 	  srcs/get_next_line.c\
-	  srcs/double_arr_len.c\
-	  srcs/free_double_arr.c
 
 SRC = $(wildcard $(SRC_SEARCH))
 
