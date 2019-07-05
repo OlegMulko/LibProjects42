@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dar_size.c                                      :+:      :+:    :+:   */
+/*   ft_strcat_realloc.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrimes <ggrimes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/02 23:24:54 by ggrimes           #+#    #+#             */
-/*   Updated: 2019/07/02 23:27:05 by ggrimes          ###   ########.fr       */
+/*   Created: 2019/07/05 18:22:33 by aashara-          #+#    #+#             */
+/*   Updated: 2019/07/05 18:23:16 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftdar.h"
+#include "ftstr.h"
 
-size_t	ft_dar_size(char **dar)
+char	*ft_strcat_realloc(char *str, short len)
 {
-	size_t	size;
+	char	*arr;
 
-	size = 0;
-	if (!dar)
-		return (size);
-	while (dar[size])
-		size++;
-	return (size);
+	arr = str;
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	if (arr)
+		str = ft_strcat(str, arr);
+	ft_memdel((void**)&arr);
+	return (str);
 }

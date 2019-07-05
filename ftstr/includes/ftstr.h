@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ftstr.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrimes <ggrimes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 00:14:35 by ggrimes           #+#    #+#             */
-/*   Updated: 2019/07/03 00:14:56 by ggrimes          ###   ########.fr       */
+/*   Updated: 2019/07/05 18:25:29 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int		ft_is_str_contain(char *str, char sym);
 char	*ft_del_sym_str(char *str, char *delsym);
 int		ft_match(char *s1, char *s2);
 size_t	ft_num_match(char **str, char *arg);
+char	*ft_strcat_realloc(char *str, short len);
+char	*ft_strdel_el(char *buf, size_t i);
 
 #endif

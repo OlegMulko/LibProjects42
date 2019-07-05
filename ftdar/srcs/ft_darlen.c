@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double_arr_len.c                                   :+:      :+:    :+:   */
+/*   ft_darlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: filip <filip@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/26 15:58:51 by filip             #+#    #+#             */
-/*   Updated: 2019/04/26 15:59:07 by filip            ###   ########.fr       */
+/*   Created: 2019/07/02 23:24:54 by ggrimes           #+#    #+#             */
+/*   Updated: 2019/07/05 16:59:04 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ftdar.h"
 
-unsigned short	double_arr_len(char **arr)
+size_t	ft_darlen(char **dar)
 {
-	unsigned short	i;
+	size_t	size;
 
-	i = 0;
-	while (arr[i])
-		i++;
-	return (i);
+	size = 0;
+	if (!dar)
+		return (size);
+	while (dar[size])
+		size++;
+	return (size);
 }

@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftdar.h                                            :+:      :+:    :+:   */
+/*   ft_free_dar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/02 23:04:23 by ggrimes           #+#    #+#             */
-/*   Updated: 2019/07/05 17:01:06 by aashara-         ###   ########.fr       */
+/*   Created: 2019/04/27 01:40:31 by filip             #+#    #+#             */
+/*   Updated: 2019/07/05 18:19:32 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FTDAR_H
-# define FTDAR_H
+#include "ftdar.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
-# define CHECK(val) if (!val) return (0)
-# define CHECKV(val) if (!val) return
+void		free_double_arr(char **arr)
+{
+	short	i;
 
-int		ft_check_exc(char *str, char **exc);
-char	**ft_dar_add(char **dest, char **src, char **exc);
-size_t	ft_darlen(char **dar);
-void	free_double_arr(char **arr);
-char	**ftdardup(char **arr);
-
-#endif
+	if (!arr)
+		return ;
+	i = -1;
+	while (arr[++i])
+		ft_memdel((void**)&(arr[i]));
+	free(arr);
+	arr = NULL;
+}

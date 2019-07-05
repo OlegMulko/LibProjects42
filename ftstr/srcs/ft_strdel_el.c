@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftdar.h                                            :+:      :+:    :+:   */
+/*   ft_strdel_el.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/02 23:04:23 by ggrimes           #+#    #+#             */
-/*   Updated: 2019/07/05 17:01:06 by aashara-         ###   ########.fr       */
+/*   Created: 2019/07/05 18:24:12 by aashara-          #+#    #+#             */
+/*   Updated: 2019/07/05 18:24:50 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FTDAR_H
-# define FTDAR_H
+#include "ftstr.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
-# define CHECK(val) if (!val) return (0)
-# define CHECKV(val) if (!val) return
+char		*ft_strdel_el(char *buf, size_t i)
+{
+	char	*str;
 
-int		ft_check_exc(char *str, char **exc);
-char	**ft_dar_add(char **dest, char **src, char **exc);
-size_t	ft_darlen(char **dar);
-void	free_double_arr(char **arr);
-char	**ftdardup(char **arr);
-
-#endif
+	if (i >= ft_strlen(buf))
+		return (buf);
+	str = NULL;
+	if (buf + i + 1)
+		if (!(str = ft_strdup(buf + i + 1)))
+			return (NULL);
+	*(buf + i) = '\0';
+	buf = ft_strcat(buf, str);
+	ft_memdel((void**)&str);
+	return (buf);
+}

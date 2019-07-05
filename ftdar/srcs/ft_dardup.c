@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_double_arr.c                                  :+:      :+:    :+:   */
+/*   ft_dardup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/27 01:40:31 by filip             #+#    #+#             */
-/*   Updated: 2019/06/11 19:10:40 by aashara-         ###   ########.fr       */
+/*   Created: 2019/07/05 16:59:37 by aashara-          #+#    #+#             */
+/*   Updated: 2019/07/05 17:00:54 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ftdar.h"
 
-void		free_double_arr(char **arr)
+char		**ftdardup(char **arr)
 {
 	short	i;
+	char	**arr1;
 
 	if (!arr)
-		return ;
+		return (NULL);
+	if (!(arr1 = (char**)malloc(sizeof(char*) * (double_arr_len(arr) + 1))))
+		return (NULL);
 	i = -1;
 	while (arr[++i])
-		ft_memdel((void**)&(arr[i]));
-	free(arr);
-	arr = NULL;
+		if (!(arr1[i] = ft_strdup(arr[i])))
+			return (NULL);
+	arr1[i] = NULL;
+	return (arr1);
 }
