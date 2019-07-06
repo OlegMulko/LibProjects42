@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 16:27:35 by aashara-          #+#    #+#             */
-/*   Updated: 2018/12/22 15:22:38 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/07/06 14:53:40 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnew(size_t size)
 
 	if (size >= 9223372036854775807)
 		return (NULL);
-	arr = (char*)malloc(sizeof(char) * size + 1);
+	arr = (char*)malloc(sizeof(char) * (size + 1));
 	if (!arr)
 		return (NULL);
 	arr[size] = '\0';
