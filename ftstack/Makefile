@@ -15,6 +15,7 @@ NAME=libftstack.a
 SRC_SEARCH = ft_newstack.c \
 			 ft_del_stack_elem.c \
 			 ft_del_stack.c \
+			 ft_add_stack.c \
 
 SRC = $(wildcard $(SRC_SEARCH))
 
