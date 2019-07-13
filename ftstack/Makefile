@@ -12,7 +12,7 @@
 
 NAME=libftstack.a
 
-SRC_SEARCH =\
+SRC_SEARCH = ft_newstack.c\
 
 SRC = $(wildcard $(SRC_SEARCH))
 

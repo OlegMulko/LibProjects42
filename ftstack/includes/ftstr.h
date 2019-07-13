@@ -14,4 +14,6 @@ typedef struct  s_stack
     struct s_stack  *next;
 }               t_stack;
 
+t_stack *ft_newstack(size_t id, void *data, size_t *stack_size);
+
 #endif
