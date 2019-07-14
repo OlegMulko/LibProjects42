@@ -6,7 +6,7 @@
 #    By: olegmulko <olegmulko@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/03 11:46:19 by olegmulko         #+#    #+#              #
-#    Updated: 2019/07/03 11:59:04 by olegmulko        ###   ########.fr        #
+#    Updated: 2019/07/14 22:05:26 by olegmulko        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ FTDIR=./ftdir
 
 FTDAR=./ftdar
 
-all: libft ftstr ftdir ftdar
+FTSTACK=./ftstack
+
+all: libft ftstr ftdir ftdar ftstack
 
 .PHONY: libft
 libft:
@@ -36,16 +38,22 @@ ftdir:
 ftdar:
 	make -C $(FTDAR)
 
+.PHONY: ftstack
+ftdar:
+	make -C $(FTSTACK)
+
 clean:
 	make clean -C $(LIBFT)
 	make clean -C $(FTSTR)
 	make clean -C $(FTDIR)
 	make clean -C $(FTDAR)
+	make clean -C $(FTSTACK)
 
 fclean:	clean
 	make fclean -C $(LIBFT)
 	make fclean -C $(FTSTR)
 	make fclean -C $(FTDIR)
 	make fclean -C $(FTDAR)
+	make fclean -C $(FTSTACK)
 
 re: fclean all

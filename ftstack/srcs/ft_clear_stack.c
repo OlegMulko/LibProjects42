@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_newstack.c                                      :+:      :+:    :+:   */
+/*   ft_clear_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olegmulko <olegmulko@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/14 21:28:55 by olegmulko         #+#    #+#             */
-/*   Updated: 2019/07/14 21:50:59 by olegmulko        ###   ########.fr       */
+/*   Created: 2019/07/14 21:34:23 by olegmulko         #+#    #+#             */
+/*   Updated: 2019/07/14 22:40:50 by olegmulko        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftstack.h"
 
-t_stack	*ft_newstack(size_t id, void *data, size_t **stack_size)
+void	ft_clear_stack(t_stack **stack)
 {
-	t_stack	*newstack;
+	t_stack	*cur_stack;
+	t_stack	*next_stack;
 
-	if (!(newstack = (t_stack *)malloc(sizeof(t_stack))))
-		return (NULL);
-	newstack->id = id;
-	newstack->data = data;
-	newstack->stack_size = *stack_size;
-	newstack->next = NULL;
-	return (newstack);
+	if (!*stack)
+		return ;
+	next_stack = *stack;
+	while (next_stack)
+	{
+		cur_stack = next_stack;
+		*(cur_stack->stack_size)--;
+		next_stack = next_stack->next;
+		ft_del_stack(&cur_stack);
+	}
+	stack = NULL;
 }

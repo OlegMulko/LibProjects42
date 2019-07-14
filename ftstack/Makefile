@@ -3,25 +3,27 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
+#    By: olegmulko <olegmulko@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/07/05 20:28:46 by aashara-         ###   ########.fr        #
+#    Updated: 2019/07/14 22:07:31 by olegmulko        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libftstack.a
 
 SRC_SEARCH = ft_newstack.c \
-			 ft_del_stack_elem.c \
 			 ft_del_stack.c \
+			 ft_clear_stack.c \
 			 ft_add_stack.c \
+			 ft_get_stack.c \
+			 ft_stack.c \
 
 SRC = $(wildcard $(SRC_SEARCH))
 
 OBJ = $(SRC:.c=.o)
 
-INCLUDES = -I includes
+INCLUDES = -I includes -I ../libft/includes
 
 all: $(NAME)
 
@@ -42,4 +44,3 @@ fclean:	clean
 
 .PHONY: re
 re: fclean all
-
