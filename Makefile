@@ -6,7 +6,7 @@
 #    By: olegmulko <olegmulko@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/03 11:46:19 by olegmulko         #+#    #+#              #
-#    Updated: 2019/07/14 22:05:26 by olegmulko        ###   ########.fr        #
+#    Updated: 2019/07/16 10:33:31 by olegmulko        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ ftdar:
 	make -C $(FTDAR)
 
 .PHONY: ftstack
-ftdar:
+ftstack:
 	make -C $(FTSTACK)
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: olegmulko <olegmulko@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 21:40:29 by olegmulko         #+#    #+#             */
-/*   Updated: 2019/07/14 22:54:19 by olegmulko        ###   ########.fr       */
+/*   Updated: 2019/07/16 15:07:27 by olegmulko        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ t_stack	*ft_add_stack(t_stack *stack, void *data)
 	else
 	{
 		stack_size = stack->stack_size;
-		*stack_size++;
+		(*stack_size)++;
 	}
-	if (!(newstack = ft_newstack(*stack_size,
-		data, &stack_size)
+	if (!(newstack = ft_newstack(*stack_size, data, &stack_size)))
 		return (NULL);
 	newstack->next = stack;
 	return (newstack);
