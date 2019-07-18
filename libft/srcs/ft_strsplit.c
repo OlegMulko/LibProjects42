@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:25:02 by aashara-          #+#    #+#             */
-/*   Updated: 2019/05/28 19:45:46 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/07/18 16:22:29 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,14 @@ char			**ft_strsplit(char const *s, char c)
 	index = 0;
 	if (!(nb_word = ft_cnt_parts((const char *)s, c)))
 		return (NULL);
-	t = (char **)malloc(sizeof(char*) * (ft_cnt_parts((const char *)s, c) + 1));
-	if (t == NULL)
+	if (!(t = (char **)malloc(sizeof(char*) * (nb_word + 1))))
 		return (NULL);
 	while (nb_word--)
 	{
 		while (*s == c && *s != '\0')
 			s++;
-		t[index] = ft_strsub((const char *)s, 0, ft_wlen((const char *)s, c));
-		if (t[index] == NULL)
+		if (!(t[index] = ft_strsub((const char *)s, 0,
+		ft_wlen((const char *)s, c))))
 			return (NULL);
 		s = s + ft_wlen(s, c);
 		index++;
