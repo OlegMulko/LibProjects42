@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
+#    By: olegmulko <olegmulko@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/07/05 17:01:33 by aashara-         ###   ########.fr        #
+#    Updated: 2019/07/16 10:09:36 by olegmulko        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,12 +30,8 @@ $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-%.o: %.c libft
+%.o: %.c
 	gcc -c $< -o $@ -Wall -Wextra -Werror $(INCLUDES)
-
-.PHONY: libft
-libft:
-	make -C ../libft
 
 .PHONY: clean
 clean:
