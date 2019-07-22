@@ -6,7 +6,7 @@
 /*   By: olegmulko <olegmulko@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 11:33:32 by olegmulko         #+#    #+#             */
-/*   Updated: 2019/07/22 10:06:17 by olegmulko        ###   ########.fr       */
+/*   Updated: 2019/07/22 10:15:51 by olegmulko        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void	ft_del_fifo(t_fifo **fifo);
 void	ft_clear_fifo(t_fifo **fifo);
 t_fifo	*ft_add_fifo(t_fifo *fifo, void *data);
 void	*ft_get_fifo(t_fifo **fifo);
+void	*ft_fifo(size_t fifo_id, char *method, void *data);
 
 #endif

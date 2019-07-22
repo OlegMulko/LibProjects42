@@ -6,7 +6,7 @@
 #    By: olegmulko <olegmulko@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/07/22 10:06:43 by olegmulko        ###   ########.fr        #
+#    Updated: 2019/07/22 10:15:08 by olegmulko        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC_SEARCH = srcs/ft_newfifo.c \
 			 srcs/ft_clear_fifo.c \
 			 srcs/ft_add_fifo.c \
 			 srcs/ft_get_fifo.c \
+			 srcs/ft_fifo.c \
 
 SRC = $(wildcard $(SRC_SEARCH))
 
