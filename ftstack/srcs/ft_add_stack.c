@@ -6,19 +6,32 @@
 /*   By: olegmulko <olegmulko@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 21:40:29 by olegmulko         #+#    #+#             */
-/*   Updated: 2019/07/16 15:07:27 by olegmulko        ###   ########.fr       */
+/*   Updated: 2019/07/19 12:40:56 by olegmulko        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftstack.h"
 
-t_stack	*ft_add_stack(t_stack *stack, void *data)
+static size_t	*ft_size(t_stack *stack);
+
+t_stack			*ft_add_stack(t_stack *stack, void *data)
 {
 	t_stack	*newstack;
 	size_t	*stack_size;
 
 	if (!data)
 		return (stack);
+	stack_size = ft_size(stack);
+	if (!(newstack = ft_newstack(*stack_size, data, &stack_size)))
+		return (NULL);
+	newstack->next = stack;
+	return (newstack);
+}
+
+static size_t	*ft_size(t_stack *stack)
+{
+	size_t	*stack_size;
+
 	if (!stack)
 	{
 		if (!(stack_size = (size_t *)malloc(sizeof(size_t))))
@@ -30,8 +43,5 @@ t_stack	*ft_add_stack(t_stack *stack, void *data)
 		stack_size = stack->stack_size;
 		(*stack_size)++;
 	}
-	if (!(newstack = ft_newstack(*stack_size, data, &stack_size)))
-		return (NULL);
-	newstack->next = stack;
-	return (newstack);
+	return (stack_size);
 }
