@@ -6,7 +6,7 @@
 #    By: olegmulko <olegmulko@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/07/16 10:53:44 by olegmulko        ###   ########.fr        #
+#    Updated: 2019/07/22 10:20:24 by olegmulko        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ $(NAME): $(OBJ)
 	ranlib $(NAME)
 
 %.o: %.c
-	gcc -g -O0 -c $< -o $@ -Wall -Wextra -Werror $(INCLUDES)
+	gcc -c $< -o $@ -Wall -Wextra -Werror $(INCLUDES)
 
 .PHONY: clean
 clean:
