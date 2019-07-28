@@ -13,5 +13,5 @@ if [ -d $PWD/$dirname ]; then
 		make -C $PWD
 	fi
 else
-	git clone $repo -b master $libname && make -C $PWD/$dirname
+	git clone $repo -b master $dirname && make -C $PWD/$dirname
 fi
