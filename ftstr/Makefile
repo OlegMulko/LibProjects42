@@ -3,48 +3,68 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: olegmulko <olegmulko@student.42.fr>        +#+  +:+       +#+         #
+#    By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/07/16 10:08:54 by olegmulko        ###   ########.fr        #
+#    Updated: 2019/08/05 17:19:19 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libftstr.a
+name = libftstr.a
 
-SRC_SEARCH =srcs/ft_get_cnt_words.c\
-			srcs/ft_is_str_contain.c\
-			srcs/ft_last_word_pos.c\
-			srcs/ft_del_sym_str.c\
-			srcs/ft_match.c\
-			srcs/ft_num_match.c\
-			srcs/ft_strdel_el.c\
-			srcs/ft_strdup_realloc.c\
-			srcs/ft_stradd.c\
+srcs_dir = srcs
 
-SRC = $(wildcard $(SRC_SEARCH))
+obj_dir = obj
 
-OBJ = $(SRC:.c=.o)
+srcs_files = ft_get_cnt_words.c\
+			ft_is_str_contain.c\
+			ft_last_word_pos.c\
+			ft_del_sym_str.c\
+			ft_match.c\
+			ft_num_match.c\
+			ft_strdel_el.c\
+			ft_strdup_realloc.c\
+			ft_stradd.c\
 
-INCLUDES = -I includes -I ../libft/includes
+obj_files = $(srcs_files:.c=.o)
 
-all: $(NAME)
+objs = $(addprefix $(obj_dir)/, $(obj_files))
 
-$(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+includes = -I ./includes -I ../libft/includes
 
-%.o: %.c
-	gcc -c $< -o $@ -Wall -Wextra -Werror $(INCLUDES)
+cc = gcc
 
-.PHONY: clean
+cflags = -Wall -Wextra -Werror
+
+.PHONY: all clean fclean re
+
+all: $(name)
+
+$(name): $(obj_dir) $(objs)
+	@echo "\033[32m\033[1mLink object files\033[0m"
+	@ar rc $(name) $(objs)
+	@echo "\033[32m\033[1mRun lib $(CURDIR)/$(name)\033[0m"
+	@ranlib $(name)
+
+$(obj_dir):
+	@echo "\033[32m\033[1mCreate object directory $(CURDIR)/$(obj_dir)\033[0m"
+	@mkdir -p $(obj_dir)
+	@echo "\033[32m\033[1mCompile sources:\033[0m"
+	@$(MAKE) --no-print-directory $(objs)
+
+$(obj_dir)/%.o:$(srcs_dir)/%.c
+	@echo "* \033[31m\033[1mCreate object file $(CURDIR)/$@\033[0m"
+	@$(cc) $(cflags) $(includes) -o $@ -c $<
+
 clean:
-	rm -rf $(OBJ)
+	@echo "\033[36m\033[1mRemove $(CURDIR)/$(obj_dir)\033[0m"
+	@-rm -rf $(obj_dir)
 
-.PHONY: fclean
-fclean:	clean
-	rm -rf $(NAME)
+fclean:
+	@$(MAKE) --no-print-directory clean
+	@echo "\033[36m\033[1mRemove $(CURDIR)/$(name)\033[0m"
+	@-rm -rf $(name)
 
-.PHONY: re
-re: fclean all
-
+re:
+	@$(MAKE) --no-print-directory fclean
+	@$(MAKE) --no-print-directory all

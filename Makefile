@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: olegmulko <olegmulko@student.42.fr>        +#+  +:+       +#+         #
+#    By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/03 11:46:19 by olegmulko         #+#    #+#              #
-#    Updated: 2019/07/22 10:07:39 by olegmulko        ###   ########.fr        #
+#    Updated: 2019/08/05 17:22:10 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,44 +24,40 @@ FTFIFO=./ftfifo
 
 all: libft ftstr ftdir ftdar ftstack ftfifo
 
-.PHONY: libft
+.PHONY: libft ftstr ftdir ftdar ftstack ftfifo
+
 libft:
-	make -C $(LIBFT)
+	@$(MAKE) --no-print-directory -C $(LIBFT)
 
-.PHONY: ftstr
 ftstr:
-	make -C $(FTSTR)
+	@$(MAKE) --no-print-directory -C $(FTSTR)
 
-.PHONY: ftdir
 ftdir:
-	make -C $(FTDIR)
+	@$(MAKE) --no-print-directory -C $(FTDIR)
 
-.PHONY: ftdar
 ftdar:
-	make -C $(FTDAR)
+	@$(MAKE) --no-print-directory -C $(FTDAR)
 
-.PHONY: ftstack
 ftstack:
-	make -C $(FTSTACK)
+	@$(MAKE) --no-print-directory -C $(FTSTACK)
 
-.PHONY: ftfifo
 ftfifo:
-	make -C $(FTFIFO)
+	@$(MAKE) --no-print-directory -C $(FTFIFO)
 
 clean:
-	make clean -C $(LIBFT)
-	make clean -C $(FTSTR)
-	make clean -C $(FTDIR)
-	make clean -C $(FTDAR)
-	make clean -C $(FTSTACK)
-	make clean -C $(FTFIFO)
+	@$(MAKE) clean --no-print-directory -C  $(LIBFT)
+	@$(MAKE) clean --no-print-directory -C  $(FTSTR)
+	@$(MAKE) clean --no-print-directory -C  $(FTDIR)
+	@$(MAKE) clean --no-print-directory -C  $(FTDAR)
+	@$(MAKE) clean --no-print-directory -C  $(FTSTACK)
+	@$(MAKE) clean --no-print-directory -C  $(FTFIFO)
 
-fclean:	clean
-	make fclean -C $(LIBFT)
-	make fclean -C $(FTSTR)
-	make fclean -C $(FTDIR)
-	make fclean -C $(FTDAR)
-	make fclean -C $(FTSTACK)
-	make fclean -C $(FTFIFO)
+fclean:
+	@$(MAKE) fclean --no-print-directory -C  $(LIBFT)
+	@$(MAKE) fclean --no-print-directory -C  $(FTSTR)
+	@$(MAKE) fclean --no-print-directory -C  $(FTDIR)
+	@$(MAKE) fclean --no-print-directory -C  $(FTDAR)
+	@$(MAKE) fclean --no-print-directory -C  $(FTSTACK)
+	@$(MAKE) fclean --no-print-directory -C  $(FTFIFO)
 
 re: fclean all

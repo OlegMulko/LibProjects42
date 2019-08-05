@@ -3,98 +3,118 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
+#    By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/07/05 19:03:29 by aashara-         ###   ########.fr        #
+#    Updated: 2019/08/05 17:18:02 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libft.a
+name = libft.a
 
-SRC_SEARCH =srcs/ft_strlen.c\
-	  srcs/ft_strdup.c\
-	  srcs/ft_strcmp.c\
-	  srcs/ft_memset.c\
-	  srcs/ft_bzero.c\
-	  srcs/ft_memcpy.c\
-	  srcs/ft_memccpy.c\
-	  srcs/ft_memmove.c\
-	  srcs/ft_memchr.c\
-	  srcs/ft_memcmp.c\
-	  srcs/ft_strcpy.c\
-	  srcs/ft_strncpy.c\
-	  srcs/ft_strcat.c\
-	  srcs/ft_strchr.c\
-	  srcs/ft_strrchr.c\
-	  srcs/ft_strstr.c\
-	  srcs/ft_strnstr.c\
-	  srcs/ft_strncmp.c\
-	  srcs/ft_atoi.c\
-	  srcs/ft_isdigit.c\
-	  srcs/ft_isalpha.c\
-	  srcs/ft_isalnum.c\
-	  srcs/ft_isascii.c\
-	  srcs/ft_isprint.c\
-	  srcs/ft_toupper.c\
-	  srcs/ft_tolower.c\
-	  srcs/ft_memalloc.c\
-	  srcs/ft_memdel.c\
-	  srcs/ft_strnew.c\
-	  srcs/ft_strdel.c\
-	  srcs/ft_strclr.c\
-	  srcs/ft_striter.c\
-	  srcs/ft_striteri.c\
-	  srcs/ft_strmap.c\
-	  srcs/ft_strmapi.c\
-	  srcs/ft_strequ.c\
-	  srcs/ft_strnequ.c\
-	  srcs/ft_strsub.c\
-	  srcs/ft_strjoin.c\
-	  srcs/ft_strtrim.c\
-	  srcs/ft_strsplit.c\
-	  srcs/ft_putchar.c\
-	  srcs/ft_putstr.c\
-	  srcs/ft_putnbr.c\
-	  srcs/ft_putchar_fd.c\
-	  srcs/ft_putstr_fd.c\
-	  srcs/ft_putendl_fd.c\
-	  srcs/ft_putendl.c\
-	  srcs/ft_putnbr_fd.c\
-	  srcs/ft_itoa.c\
-	  srcs/ft_strlcat.c\
-	  srcs/ft_strncat.c\
-	  srcs/ft_lstnew.c\
-	  srcs/ft_lstdelone.c\
-	  srcs/ft_lstdel.c\
-	  srcs/ft_lstadd.c\
-	  srcs/ft_lstiter.c\
-	  srcs/ft_lstmap.c\
-	  srcs/get_next_line.c\
+srcs_dir = srcs
 
-SRC = $(wildcard $(SRC_SEARCH))
+obj_dir = obj
 
-OBJ = $(SRC:.c=.o)
+srcs_files = ft_strlen.c\
+		ft_strdup.c\
+		ft_strcmp.c\
+		ft_memset.c\
+		ft_bzero.c\
+		ft_memcpy.c\
+		ft_memccpy.c\
+		ft_memmove.c\
+		ft_memchr.c\
+		ft_memcmp.c\
+		ft_strcpy.c\
+		ft_strncpy.c\
+		ft_strcat.c\
+		ft_strchr.c\
+		ft_strrchr.c\
+		ft_strstr.c\
+		ft_strnstr.c\
+		ft_strncmp.c\
+		ft_atoi.c\
+		ft_isdigit.c\
+		ft_isalpha.c\
+		ft_isalnum.c\
+		ft_isascii.c\
+		ft_isprint.c\
+		ft_toupper.c\
+		ft_tolower.c\
+		ft_memalloc.c\
+		ft_memdel.c\
+		ft_strnew.c\
+		ft_strdel.c\
+		ft_strclr.c\
+		ft_striter.c\
+		ft_striteri.c\
+		ft_strmap.c\
+		ft_strmapi.c\
+		ft_strequ.c\
+		ft_strnequ.c\
+		ft_strsub.c\
+		ft_strjoin.c\
+		ft_strtrim.c\
+		ft_strsplit.c\
+		ft_putchar.c\
+		ft_putstr.c\
+		ft_putnbr.c\
+		ft_putchar_fd.c\
+		ft_putstr_fd.c\
+		ft_putendl_fd.c\
+		ft_putendl.c\
+		ft_putnbr_fd.c\
+		ft_itoa.c\
+		ft_strlcat.c\
+		ft_strncat.c\
+		ft_lstnew.c\
+		ft_lstdelone.c\
+		ft_lstdel.c\
+		ft_lstadd.c\
+		ft_lstiter.c\
+		ft_lstmap.c\
+		get_next_line.c\
 
-INCLUDES = -I includes
+obj_files = $(srcs_files:.c=.o)
 
-all: $(NAME)
+objs = $(addprefix $(obj_dir)/, $(obj_files))
 
-$(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+includes = -I includes
 
-%.o: %.c
-	gcc -c $< -o $@ -Wall -Wextra -Werror $(INCLUDES)
+cc = gcc
 
-.PHONY: clean
+cflags = -Wall -Wextra -Werror
+
+.PHONY: all clean fclean re
+
+all: $(name)
+
+$(name): $(obj_dir) $(objs)
+	@echo "\033[32m\033[1mLink object files\033[0m"
+	@ar rc $(name) $(objs)
+	@echo "\033[32m\033[1mRun lib $(CURDIR)/$(name)\033[0m"
+	@ranlib $(name)
+
+$(obj_dir):
+	@echo "\033[32m\033[1mCreate object directory $(CURDIR)/$(obj_dir)\033[0m"
+	@mkdir -p $(obj_dir)
+	@echo "\033[32m\033[1mCompile sources:\033[0m"
+	@$(MAKE) --no-print-directory $(objs)
+
+$(obj_dir)/%.o:$(srcs_dir)/%.c
+	@echo "* \033[31m\033[1mCreate object file $(CURDIR)/$@\033[0m"
+	@$(cc) $(cflags) $(includes) -o $@ -c $<
+
 clean:
-	rm -rf $(OBJ)
+	@echo "\033[36m\033[1mRemove $(CURDIR)/$(obj_dir)\033[0m"
+	@-rm -rf $(obj_dir)
 
-.PHONY: fclean
-fclean:	clean
-	rm -rf $(NAME)
+fclean:
+	@$(MAKE) --no-print-directory clean
+	@echo "\033[36m\033[1mRemove $(CURDIR)/$(name)\033[0m"
+	@-rm -rf $(name)
 
-.PHONY: re
-re: fclean all
-
+re:
+	@$(MAKE) --no-print-directory fclean
+	@$(MAKE) --no-print-directory all
