@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/08/05 17:19:19 by aashara-         ###   ########.fr        #
+#    Updated: 2019/08/06 15:44:00 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,9 @@ all: $(name)
 $(name): $(obj_dir) $(objs)
 	@echo "\033[32m\033[1mLink object files\033[0m"
 	@ar rc $(name) $(objs)
-	@echo "\033[32m\033[1mRun lib $(CURDIR)/$(name)\033[0m"
+	@echo "\033[32m\033[1mBuilding archive content $(CURDIR)/$(name)\033[0m"
 	@ranlib $(name)
+	@echo "\033[1;33m\033[1mFinish $(CURDIR)/$(name)\033[0m\n"
 
 $(obj_dir):
 	@echo "\033[32m\033[1mCreate object directory $(CURDIR)/$(obj_dir)\033[0m"
