@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/03 11:46:19 by olegmulko         #+#    #+#              #
-#    Updated: 2019/08/07 23:30:28 by aashara-         ###   ########.fr        #
+#    Updated: 2019/08/09 11:08:37 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,7 @@ libfifo = libfifo
 
 lib_dir = lib_archive
 
-.PHONY: all lclean lfclean fclean $(libft) $(libstr) $(libdir)\
-		$(libdar) $(libstack) $(libfifo) create_dir
+.PHONY: all lclean lfclean fclean create_dir
 
 all: $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo) $(lib_dir)
 
@@ -53,7 +52,8 @@ $(lib_dir): $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo)
 	@echo "\033[32m\033[1mCopy libs to $(CURDIR)/$(lib_dir)\033[0m"
 	@cp $(libft)/$(libft).a $(libstr)/$(libstr).a $(libdir)/$(libdir).a \
 	$(libdar)/$(libdar).a $(libstack)/$(libstack).a $(libfifo)/$(libfifo).a $(lib_dir)
-	@echo "\033[1;33m\033[1mFinish $(lib_dir)\033[0m\n"
+	@echo "\033[1;33m\033[1mFinish $(lib_dir)\033[0m $(libft) $(libstr) $(libdir)\
+		$(libdar) $(libstack) $(libfifo)\n"
 
 lclean:
 	@$(MAKE) clean --no-print-directory -C  $(libft)
