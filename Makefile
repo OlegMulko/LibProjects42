@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/03 11:46:19 by olegmulko         #+#    #+#              #
-#    Updated: 2019/08/09 11:08:37 by aashara-         ###   ########.fr        #
+#    Updated: 2019/08/09 13:00:57 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ libfifo = libfifo
 
 lib_dir = lib_archive
 
-.PHONY: all lclean lfclean fclean create_dir
+.PHONY: all lall lclean lfclean fclean create_dir
 
 all: $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo) $(lib_dir)
 
@@ -46,7 +46,7 @@ $(libstack):
 $(libfifo):
 	@$(MAKE) --no-print-directory -C $(libfifo)
 
-$(lib_dir): $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo)
+$(lib_dir): $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo) lall
 	@echo "\033[32m\033[1mCreate libs directory $(CURDIR)/$(lib_dir)\033[0m"
 	@mkdir -p $(lib_dir)
 	@echo "\033[32m\033[1mCopy libs to $(CURDIR)/$(lib_dir)\033[0m"
@@ -54,6 +54,14 @@ $(lib_dir): $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo)
 	$(libdar)/$(libdar).a $(libstack)/$(libstack).a $(libfifo)/$(libfifo).a $(lib_dir)
 	@echo "\033[1;33m\033[1mFinish $(lib_dir)\033[0m $(libft) $(libstr) $(libdir)\
 		$(libdar) $(libstack) $(libfifo)\n"
+
+lall:
+	@$(MAKE) all --no-print-directory -C  $(libft)
+	@$(MAKE) all --no-print-directory -C  $(libstr)
+	@$(MAKE) all --no-print-directory -C  $(libdir)
+	@$(MAKE) all --no-print-directory -C  $(libdar)
+	@$(MAKE) all --no-print-directory -C  $(libstack)
+	@$(MAKE) all --no-print-directory -C  $(libfifo)
 
 lclean:
 	@$(MAKE) clean --no-print-directory -C  $(libft)
