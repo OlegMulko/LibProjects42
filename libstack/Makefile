@@ -6,32 +6,32 @@
 #    By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/08/06 17:52:47 by aashara-         ###   ########.fr        #
+#    Updated: 2019/08/09 19:15:39 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-name = libstack.a
+name := libstack.a
 
-srcs_dir = srcs
+srcs_dir := srcs
 
-obj_dir = obj
+obj_dir := obj
 
-srcs_files = ft_newstack.c\
+srcs_files := ft_newstack.c\
 			ft_del_stack.c\
 			ft_clear_stack.c\
 			ft_add_stack.c\
 			ft_get_stack.c\
 			ft_stack.c\
 
-obj_files = $(srcs_files:.c=.o)
+obj_files := $(srcs_files:.c=.o)
 
-objs = $(addprefix $(obj_dir)/, $(obj_files))
+objs := $(addprefix $(obj_dir)/, $(obj_files))
 
-includes = -I ./includes -I ../libft/includes
+includes := -I ./includes -I ../libft/includes
 
-cc = gcc
+cc := gcc
 
-cflags = -Wall -Wextra -Werror
+cflags := -Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 

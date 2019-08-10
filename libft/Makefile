@@ -6,17 +6,17 @@
 #    By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/08/06 15:43:12 by aashara-         ###   ########.fr        #
+#    Updated: 2019/08/09 19:15:08 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-name = libft.a
+name := libft.a
 
-srcs_dir = srcs
+srcs_dir := srcs
 
-obj_dir = obj
+obj_dir := obj
 
-srcs_files = ft_strlen.c\
+srcs_files := ft_strlen.c\
 		ft_strdup.c\
 		ft_strcmp.c\
 		ft_memset.c\
@@ -76,15 +76,15 @@ srcs_files = ft_strlen.c\
 		ft_lstmap.c\
 		get_next_line.c\
 
-obj_files = $(srcs_files:.c=.o)
+obj_files := $(srcs_files:.c=.o)
 
-objs = $(addprefix $(obj_dir)/, $(obj_files))
+objs := $(addprefix $(obj_dir)/, $(obj_files))
 
-includes = -I includes
+includes := -I includes
 
-cc = gcc
+cc := gcc
 
-cflags = -Wall -Wextra -Werror
+cflags := -Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 

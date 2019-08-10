@@ -1,7 +1,7 @@
 # ignore .DC_Store
 .DS_Store
 #ignore libs dir
-libs/
+lib_archive/
 #ignore obj dir
 /*/obj
 # ignore all files .o

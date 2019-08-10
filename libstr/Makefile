@@ -6,17 +6,17 @@
 #    By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/08/06 17:52:33 by aashara-         ###   ########.fr        #
+#    Updated: 2019/08/09 19:16:23 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-name = libstr.a
+name := libstr.a
 
-srcs_dir = srcs
+srcs_dir := srcs
 
-obj_dir = obj
+obj_dir := obj
 
-srcs_files = ft_get_cnt_words.c\
+srcs_files := ft_get_cnt_words.c\
 			ft_is_str_contain.c\
 			ft_last_word_pos.c\
 			ft_del_sym_str.c\
@@ -26,15 +26,15 @@ srcs_files = ft_get_cnt_words.c\
 			ft_strdup_realloc.c\
 			ft_stradd.c\
 
-obj_files = $(srcs_files:.c=.o)
+obj_files := $(srcs_files:.c=.o)
 
-objs = $(addprefix $(obj_dir)/, $(obj_files))
+objs := $(addprefix $(obj_dir)/, $(obj_files))
 
-includes = -I ./includes -I ../libft/includes
+includes := -I ./includes -I ../libft/includes
 
-cc = gcc
+cc := gcc
 
-cflags = -Wall -Wextra -Werror
+cflags := -Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 
