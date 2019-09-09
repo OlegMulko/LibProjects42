@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 18:26:24 by aashara-          #+#    #+#             */
-/*   Updated: 2019/08/07 15:33:40 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/09/09 21:41:57 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_stradd(char *buf, char *s, size_t i)
 {
 	char	*str;
 
+	if (!s)
+		return(buf);
 	if (i >= ft_strlen(buf))
 		return (ft_strcat(buf, s));
 	if (!(str = ft_strdup(buf + i)))
