@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dardup.c                                        :+:      :+:    :+:   */
+/*   ft_darnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 17:19:52 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/11 17:19:53 by aashara-         ###   ########.fr       */
+/*   Created: 2019/09/11 17:13:35 by aashara-          #+#    #+#             */
+/*   Updated: 2019/09/11 17:20:22 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libdar.h"
 
-char		**ft_dardup(char **arr)
+char		**ft_darnew(size_t size)
 {
-	short	i;
-	char	**arr1;
+	char	**arr;
+	size_t	i;
 
-	if (!arr)
-		return (NULL);
-	if (!(arr1 = (char**)malloc(sizeof(char*) * (ft_darlen(arr) + 1))))
+	if (!(arr = (char**)malloc(sizeof(char*) * (size + 1))))
 		return (NULL);
 	i = -1;
-	while (arr[++i])
-		if (!(arr1[i] = ft_strdup(arr[i])))
-			return (NULL);
-	arr1[i] = NULL;
-	return (arr1);
+	while (++i <= size)
+		arr[i] = NULL;
+	return (arr);
 }

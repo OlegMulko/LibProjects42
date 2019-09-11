@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftdar.h                                            :+:      :+:    :+:   */
+/*   libdar.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aashara- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/02 23:04:23 by ggrimes           #+#    #+#             */
-/*   Updated: 2019/07/05 18:58:25 by aashara-         ###   ########.fr       */
+/*   Created: 2019/09/11 17:19:00 by aashara-          #+#    #+#             */
+/*   Updated: 2019/09/11 17:19:03 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FTDAR_H
-# define FTDAR_H
+#ifndef LIBDAR_H
+# define LIBDAR_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -24,5 +24,6 @@ char	**ft_dar_add(char **dest, char **src, char **exc);
 size_t	ft_darlen(char **dar);
 void	ft_free_dar(char **arr);
 char	**ft_dardup(char **arr);
+char	**ft_darnew(size_t size);
 
 #endif

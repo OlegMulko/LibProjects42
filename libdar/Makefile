@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/08/09 19:13:37 by aashara-         ###   ########.fr        #
+#    Updated: 2019/09/11 17:20:52 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ srcs_files := ft_check_exec.c\
 			ft_darlen.c\
 			ft_free_dar.c\
 			ft_dardup.c\
+			ft_darnew.c\
 
 obj_files := $(srcs_files:.c=.o)
 
