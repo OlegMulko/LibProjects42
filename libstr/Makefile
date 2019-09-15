@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+         #
+#    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/08/09 19:16:23 by aashara-         ###   ########.fr        #
+#    Updated: 2019/09/15 21:16:32 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ srcs_files := ft_get_cnt_words.c\
 obj_files := $(srcs_files:.c=.o)
 
 objs := $(addprefix $(obj_dir)/, $(obj_files))
+
+header := includes/libstr.h
 
 includes := -I ./includes -I ../libft/includes
 
@@ -53,7 +55,7 @@ $(obj_dir):
 	@echo "\033[32m\033[1mCompile sources:\033[0m"
 	@$(MAKE) --no-print-directory $(objs)
 
-$(obj_dir)/%.o:$(srcs_dir)/%.c
+$(obj_dir)/%.o:$(srcs_dir)/%.c $(header)
 	@echo "* \033[31m\033[1mCreate object file $(CURDIR)/$@\033[0m"
 	@$(cc) $(cflags) $(includes) -o $@ -c $<
 

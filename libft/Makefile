@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aashara- <aashara-@student.21-school.ru    +#+  +:+       +#+         #
+#    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/08/17 00:14:22 by aashara-         ###   ########.fr        #
+#    Updated: 2019/09/15 21:10:40 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,8 @@ obj_files := $(srcs_files:.c=.o)
 
 objs := $(addprefix $(obj_dir)/, $(obj_files))
 
+header := includes/libft.h includes/get_next_line.h includes/ft_abs.h
+
 includes := -I includes
 
 cc := gcc
@@ -104,7 +106,7 @@ $(obj_dir):
 	@echo "\033[32m\033[1mCompile sources:\033[0m"
 	@$(MAKE) --no-print-directory $(objs)
 
-$(obj_dir)/%.o:$(srcs_dir)/%.c
+$(obj_dir)/%.o:$(srcs_dir)/%.c $(header)
 	@echo "* \033[31m\033[1mCreate object file $(CURDIR)/$@\033[0m"
 	@$(cc) $(cflags) $(includes) -o $@ -c $<
 
