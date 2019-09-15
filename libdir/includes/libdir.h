@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftdir.h                                            :+:      :+:    :+:   */
+/*   libdir.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrimes <ggrimes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 00:01:35 by ggrimes           #+#    #+#             */
-/*   Updated: 2019/07/03 00:01:46 by ggrimes          ###   ########.fr       */
+/*   Updated: 2019/09/15 21:22:57 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FTDIR_H
-# define FTDIR_H
+#ifndef LIBDIR_H
+# define LIBDIR_H
 
 # include <unistd.h>
 # include <stdlib.h>
