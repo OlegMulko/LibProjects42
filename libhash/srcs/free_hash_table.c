@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 14:11:50 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/17 15:12:49 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/09/17 17:54:36 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	free_hash_table(t_hash **table, size_t len)
 		}
 		i++;
 	}
-	ft_memdel((void**)table);
+	ft_memdel((void**)&table);
 }
