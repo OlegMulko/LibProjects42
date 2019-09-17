@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 14:58:11 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/17 17:21:57 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/09/17 17:26:34 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 t_hash	*set_hash(char *hash_str, char *data, size_t size)
 {
-	size_t	index;
 	size_t	key;
 	t_hash	*hash;
 
