@@ -6,13 +6,13 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 14:58:11 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/17 19:29:33 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/09/17 20:54:03 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libhash.h"
 
-t_hash	**push_hash(t_hash **table, char *hash_str, char *data, size_t size)
+t_hash	**push_hash(t_hash **table, char *hash_str, void *data, size_t size)
 {
 	size_t	key;
 	t_hash	*hash;

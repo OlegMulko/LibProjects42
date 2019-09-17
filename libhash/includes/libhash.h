@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 13:58:41 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/17 19:30:07 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/09/17 20:54:57 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct		s_hash
 {
-	char			*data;
+	void			*data;
 	size_t			hash_key;
 	struct s_hash	*next;
 }					t_hash;
@@ -29,7 +29,7 @@ t_hash				*init_hash(void);
 size_t				hash_index(size_t key, size_t size);
 size_t				djb2_hash_function(char *str);
 t_hash				**push_hash(t_hash **table, char *hash_str,
-char *data, size_t size);
-char				*get_hash_data(t_hash **table, char *hash_str,
+void *data, size_t size);
+void				*get_hash_data(t_hash **table, char *hash_str,
 size_t size);
 #endif
