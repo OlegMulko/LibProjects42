@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 13:58:41 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/17 15:29:57 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/09/17 16:02:04 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_hash				**init_hash_table(size_t size);
 t_hash				*init_hash(void);
 size_t				hash_index(size_t key, size_t size);
 size_t				djb2_hash_function(char *str);
-void				push_hash(t_hash **table, char *hash_str, char *data,
+char				*push_hash(t_hash **table, char *hash_str, char *data,
 size_t size);
 char				*get_hash_data(t_hash **table, char *hash_str,
 size_t size);
