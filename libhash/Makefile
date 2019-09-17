@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/17 13:54:22 by aashara-          #+#    #+#              #
-#    Updated: 2019/09/17 17:21:48 by aashara-         ###   ########.fr        #
+#    Updated: 2019/09/17 19:30:15 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ srcs_files := free_hash_table.c\
 		init_hash.c\
 		hash_index.c\
 		djb2_hash_function.c\
-		set_hash.c\
+		push_hash.c\
 		get_hash_data.c\
 
 
