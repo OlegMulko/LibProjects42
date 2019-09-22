@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 17:19:00 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/15 21:11:54 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/09/22 18:02:44 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ size_t	ft_darlen(char **dar);
 void	ft_free_dar(char **arr);
 char	**ft_dardup(char **arr);
 char	**ft_darnew(size_t size);
-
+void	ft_putdar(char **arr);
+void	ft_putdar_fd(char **arr, int fd);
 #endif
