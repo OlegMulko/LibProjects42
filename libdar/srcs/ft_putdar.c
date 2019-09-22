@@ -6,13 +6,13 @@
 /*   By: aashara- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 18:02:56 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/22 18:05:49 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/09/22 20:22:11 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libdar.h"
 
-void	ft_putdar(char *arr)
+void	ft_putdar(char **arr)
 {
 	int	j;
 
