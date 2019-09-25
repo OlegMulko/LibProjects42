@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 13:58:41 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/17 20:54:57 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/09/25 18:40:47 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ typedef struct		s_hash
 	struct s_hash	*next;
 }					t_hash;
 
-t_hash				**free_hash_table(t_hash **table, size_t len);
+t_hash				**free_hash_table(t_hash **table, size_t len,
+char free_data);
 t_hash				**init_hash_table(size_t size);
 t_hash				*init_hash(void);
 size_t				hash_index(size_t key, size_t size);
