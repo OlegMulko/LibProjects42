@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 19:39:28 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/15 21:24:05 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/09/25 17:56:48 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int			ft_atoi(const char *str)
 	unsigned long long	res;
 	size_t				s_len;
 
+	if (!str)
+		return (0);
 	sign = 1;
 	res = 0;
 	while (*str == '\t' || *str == '\v' || *str == '\f' || *str == '\r'
