@@ -6,13 +6,13 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 14:11:50 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/17 19:22:23 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/09/25 18:40:24 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libhash.h"
 
-t_hash	**free_hash_table(t_hash **table, size_t len)
+t_hash	**free_hash_table(t_hash **table, size_t len, char free_data)
 {
 	size_t	i;
 	t_hash	*next;
@@ -26,7 +26,8 @@ t_hash	**free_hash_table(t_hash **table, size_t len)
 			next = table[i];
 			while (next)
 			{
-				ft_memdel((void**)&(next->data));
+				if (free_data)
+					ft_memdel((void**)&(next->data));
 				next->hash_key = 0;
 				copy = next;
 				next = next->next;
