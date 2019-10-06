@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/10/06 19:33:19 by aashara-         ###   ########.fr        #
+#    Updated: 2019/10/06 21:16:23 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ obj_files := $(srcs_files:.c=.o)
 
 objs := $(addprefix $(obj_dir)/, $(obj_files))
 
-header := includes/libft.h includes/get_next_line.h includes/ft_abs.h
+header := includes/libft.h includes/get_next_line.h
 
 includes := -I includes
 
