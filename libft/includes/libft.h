@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:42:59 by aashara-          #+#    #+#             */
-/*   Updated: 2019/10/06 19:32:33 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/10/06 21:16:03 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <string.h>
 # include "get_next_line.h"
-# include "ft_abs.h"
 
 # define LLONG_MAX 9223372036854775807
 # define ULLONG_MAX 18446744073709551615ULL
