@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/09/15 21:13:03 by aashara-         ###   ########.fr        #
+#    Updated: 2019/10/23 16:19:23 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ obj_dir := obj
 srcs_files := ft_size_dir.c\
 			ft_dir_flag.c\
 			ft_dir_content.c\
+			ft_file_type.c\
 
 obj_files := $(srcs_files:.c=.o)
 
