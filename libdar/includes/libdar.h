@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 17:19:00 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/22 20:19:17 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/11/04 14:07:34 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ char	**ft_dardup(char **arr);
 char	**ft_darnew(size_t size);
 void	ft_putdar(char **arr);
 void	ft_putdar_fd(char **arr, int fd);
+char	*ft_getenv(char *name, char **env);
 #endif
