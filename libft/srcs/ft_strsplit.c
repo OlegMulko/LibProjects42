@@ -12,61 +12,93 @@
 
 #include "libft.h"
 
-static int		ft_cnt_parts(const char *s, char c)
+static	char		**memfree(char **fr, int i)
 {
-	int		cnt;
-	int		in_substring;
-
-	in_substring = 0;
-	cnt = 0;
-	while (s && *s != '\0')
+	while (--i >= 0)
 	{
-		if (in_substring == 1 && *s == c)
-			in_substring = 0;
-		if (in_substring == 0 && *s != c)
-		{
-			in_substring = 1;
-			cnt++;
-		}
-		s++;
+		free(fr[i]);
+		fr[i] = 0;
 	}
-	return (cnt);
+	free(fr);
+	fr = 0;
+	return (fr);
 }
 
-static int		ft_wlen(const char *s, char c)
+static	int			ft_count_words(const char *s, int c)
 {
-	int		len;
+	int end_of_line;
+	int end_of_word;
 
-	len = 0;
-	while (*s != c && *s != '\0')
+	while (*s)
 	{
-		len++;
-		s++;
+		if (*s == 0)
+			return (0);
+		end_of_line = (*s != c && *(s + 1) == 0);
+		end_of_word = (*s != c && *(s + 1) == c);
+		if (end_of_line || end_of_word)
+			return (1 + ft_count_words(++s, c));
+		++s;
 	}
-	return (len);
+	return (0);
+}
+
+static	size_t		ft_wordsize(const char *s, int c)
+{
+	int count;
+
+	count = 0;
+	while (*s != c && *s != 0)
+	{
+		s++;
+		count++;
+	}
+	return (count);
+}
+
+static	char		*ft_word(const char *s, int c)
+{
+	char	*strnew;
+	int		i;
+	size_t	size;
+
+	i = 0;
+	size = ft_wordsize(s, c);
+	strnew = (char *)ft_memalloc(size + 1);
+	if (!strnew)
+		return (0);
+	while (size != 0)
+	{
+		strnew[i++] = *s++;
+		size--;
+	}
+	return (strnew);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
-	char	**t;
-	int		nb_word;
-	int		index;
+	char		**str;
+	size_t		words;
+	size_t		i;
 
-	index = 0;
-	if (!(nb_word = ft_cnt_parts((const char *)s, c)))
-		return (NULL);
-	if (!(t = (char **)malloc(sizeof(char*) * (nb_word + 1))))
-		return (NULL);
-	while (nb_word--)
+	if (!s)
+		return (0);
+	i = 0;
+	words = ft_count_words(s, c);
+	str = (char **)ft_memalloc((words + 1) * sizeof(char *));
+	if (!str)
+		return (0);
+	if (*s == 0)
+		return (str);
+	while (i < words)
 	{
-		while (*s == c && *s != '\0')
+		while (*s == c)
 			s++;
-		if (!(t[index] = ft_strsub((const char *)s, 0,
-		ft_wlen((const char *)s, c))))
-			return (NULL);
-		s = s + ft_wlen(s, c);
-		index++;
+		str[i] = ft_word(s, c);
+		if (!str[i++])
+			return (memfree(str, i));
+		s += ft_wordsize(s, c) + 1;
 	}
-	t[index] = NULL;
-	return (t);
+	str[words] = 0;
+	return (str);
 }
+
