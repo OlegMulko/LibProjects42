@@ -6,13 +6,13 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:25:02 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/15 21:24:22 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/11/10 19:15:51 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	char		**memfree(char **fr, int i)
+static	char	**memfree(char **fr, int i)
 {
 	while (--i >= 0)
 	{
@@ -24,10 +24,10 @@ static	char		**memfree(char **fr, int i)
 	return (fr);
 }
 
-static	int			ft_count_words(const char *s, int c)
+static	int		ft_count_words(const char *s, int c)
 {
-	int end_of_line;
-	int end_of_word;
+	int			end_of_line;
+	int			end_of_word;
 
 	while (*s)
 	{
@@ -42,9 +42,9 @@ static	int			ft_count_words(const char *s, int c)
 	return (0);
 }
 
-static	size_t		ft_wordsize(const char *s, int c)
+static	size_t	ft_wordsize(const char *s, int c)
 {
-	int count;
+	int			count;
 
 	count = 0;
 	while (*s != c && *s != 0)
@@ -55,11 +55,11 @@ static	size_t		ft_wordsize(const char *s, int c)
 	return (count);
 }
 
-static	char		*ft_word(const char *s, int c)
+static	char	*ft_word(const char *s, int c)
 {
-	char	*strnew;
-	int		i;
-	size_t	size;
+	char		*strnew;
+	int			i;
+	size_t		size;
 
 	i = 0;
 	size = ft_wordsize(s, c);
@@ -101,4 +101,3 @@ char			**ft_strsplit(char const *s, char c)
 	str[words] = 0;
 	return (str);
 }
-
