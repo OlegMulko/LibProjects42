@@ -28,6 +28,8 @@ char	*ft_dar2str(char **arr, char *symb)
 			res = ft_strjoin(arr[i], symb);
 		else
 			res = ft_strdup(arr[i]);
+		if (!res)
+			return (NULL);
 		line = ft_strjoin(line, res);
 		ft_strdel(&res);
 	}
