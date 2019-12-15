@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 14:02:05 by aashara-          #+#    #+#             */
-/*   Updated: 2019/11/04 14:07:06 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/11/24 19:56:55 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static short	get_count_env(char *arr, char **env)
 		i = -1;
 		len = ft_strlen(arr);
 		while (env[++i])
-			if (!ft_strncmp(env[i], arr, len))
+			if (!ft_strncmp(env[i], arr, len) && env[i][len] == '=')
 				return (i);
 	}
 	return (-1);

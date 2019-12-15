@@ -25,6 +25,7 @@ srcs_files := ft_check_exec.c\
 			ft_putdar.c\
 			ft_putdar_fd.c\
 			ft_getenv.c\
+			ft_dar2str.c\
 
 obj_files := $(srcs_files:.c=.o)
 

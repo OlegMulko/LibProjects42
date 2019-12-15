@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_write_to_file.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 19:44:35 by aashara-          #+#    #+#             */
-/*   Updated: 2019/11/07 21:03:02 by aashara-         ###   ########.fr       */
+/*   Created: 2019/12/01 23:43:44 by aashara-          #+#    #+#             */
+/*   Updated: 2019/12/01 23:43:47 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libdir.h"
 
-char	*ft_strncpy(char *destination, const char *source, size_t n)
+void	ft_write_to_file(char *path, int flags, int perm, char *content)
 {
-	char	*pointer1;
-	int		i;
-	int		len;
+	int	fd;
 
-	pointer1 = destination;
-	i = 0;
-	len = n;
-	if (len == 0)
-		return (pointer1);
-	while (source[i] != '\0' && i < len)
-	{
-		pointer1[i] = source[i];
-		i++;
-	}
-	pointer1[i] = '\0';
-	return (pointer1);
+	if ((fd = open(path, flags, perm)) == -1)
+		return ;
+	ft_putstr_fd(content, fd);
+	if ((close(fd)) == -1)
+		return ;
 }

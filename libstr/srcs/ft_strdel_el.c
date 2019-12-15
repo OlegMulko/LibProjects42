@@ -6,24 +6,18 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 18:24:12 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/15 21:17:46 by aashara-         ###   ########.fr       */
+/*   Updated: 2019/11/15 23:39:18 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libstr.h"
 
-char		*ft_strdel_el(char *buf, size_t i)
+char		*ft_strdel_el(char *buf, int i)
 {
-	char	*str;
-
-	if (i >= ft_strlen(buf))
+	if (i < 0)
 		return (buf);
-	str = NULL;
-	if (buf + i + 1)
-		if (!(str = ft_strdup(buf + i + 1)))
-			return (NULL);
-	*(buf + i) = '\0';
-	buf = ft_strcat(buf, str);
-	ft_memdel((void**)&str);
+	if (i >= (int)ft_strlen(buf))
+		return (buf);
+	ft_strcpy(buf + i, buf + i + 1);
 	return (buf);
 }

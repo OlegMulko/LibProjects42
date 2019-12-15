@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stradd.c                                        :+:      :+:    :+:   */
+/*   set_hash.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 18:26:24 by aashara-          #+#    #+#             */
-/*   Updated: 2019/11/15 15:09:23 by aashara-         ###   ########.fr       */
+/*   Created: 2019/09/17 14:58:11 by aashara-          #+#    #+#             */
+/*   Updated: 2019/09/17 17:26:34 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libstr.h"
+#include "libhash.h"
 
-char	*ft_stradd(char *buf, char *s, size_t i)
+t_hash	*set_hash(char *hash_str, char *data, size_t size)
 {
-	char	*str;
+	size_t	key;
+	t_hash	*hash;
 
-	if (!s || !buf)
-		return (buf);
-	if (i >= ft_strlen(buf))
-		return (ft_strcat(buf, s));
-	if (!(str = ft_strdup(buf + i)))
+	if (!hash_str || !data || size == 0)
 		return (NULL);
-	ft_strcpy(buf + i, s);
-	buf = ft_strcat(buf, str);
-	ft_strdel(&str);
-	return (buf);
+	key = djb2_hash_function(hash_str);
+	if (!(hash = init_hash()))
+		return (NULL);
+	hash->data = data;
+	hash->hash_key = key;
+	return (hash);
 }

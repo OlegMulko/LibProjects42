@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_dar2str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 19:44:35 by aashara-          #+#    #+#             */
-/*   Updated: 2019/11/07 21:03:02 by aashara-         ###   ########.fr       */
+/*   Created: 2019/12/09 15:30:02 by aashara-          #+#    #+#             */
+/*   Updated: 2019/12/09 15:30:03 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libdar.h"
 
-char	*ft_strncpy(char *destination, const char *source, size_t n)
+char	*ft_dar2str(char **arr, char *symb)
 {
-	char	*pointer1;
 	int		i;
-	int		len;
+	char	*res;
+	char	*line;
 
-	pointer1 = destination;
-	i = 0;
-	len = n;
-	if (len == 0)
-		return (pointer1);
-	while (source[i] != '\0' && i < len)
+	if (!arr)
+		return (NULL);
+	i = -1;
+	line = "";
+	while (arr[++i])
 	{
-		pointer1[i] = source[i];
-		i++;
+		if (symb)
+			res = ft_strjoin(arr[i], symb);
+		else
+			res = ft_strdup(arr[i]);
+		if (!res)
+			return (NULL);
+		line = ft_strjoin(line, res);
+		ft_strdel(&res);
 	}
-	pointer1[i] = '\0';
-	return (pointer1);
+	return (line);
 }

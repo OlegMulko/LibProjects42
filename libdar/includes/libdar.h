@@ -28,4 +28,5 @@ char	**ft_darnew(size_t size);
 void	ft_putdar(char **arr);
 void	ft_putdar_fd(char **arr, int fd);
 char	*ft_getenv(char *name, char **env);
+char	*ft_dar2str(char **arr, char *symb);
 #endif
