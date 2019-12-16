@@ -12,28 +12,17 @@
 
 #include "libdar.h"
 
-static short	get_count_env(char *arr, char **env)
-{
-	short	i;
-	short	len;
-
-	if (arr && *arr)
-	{
-		i = -1;
-		len = ft_strlen(arr);
-		while (env[++i])
-			if (!ft_strncmp(env[i], arr, len) && env[i][len] == '=')
-				return (i);
-	}
-	return (-1);
-}
-
 char			*ft_getenv(char *name, char **env)
 {
-	short	j;
-
-	if (name && *name)
-		if ((j = get_count_env(name, env)) != -1)
-			return (ft_strchr(env[j], '=') + 1);
+	char *tmp;
+	if (!name || !*name)
+		return (NULL);
+	while (*env)
+	{
+		tmp = ft_strchr(*env, '=');
+		if (!ft_strncmp(name, *env, tmp - *env))
+			return (tmp + 1);
+		env++;
+	}
 	return (NULL);
 }
