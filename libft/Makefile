@@ -77,6 +77,7 @@ srcs_files := ft_strlen.c\
 		get_next_line.c\
 		ft_isspace.c\
 		ft_swap.c\
+		ft_realloc.c
 
 obj_files := $(srcs_files:.c=.o)
 
