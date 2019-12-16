@@ -28,6 +28,7 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+void			*ft_realloc(void *buf, size_t old, size_t new_size);
 size_t			ft_strlen(const char *str);
 char			*ft_strdup(const char *str);
 int				ft_strcmp(const char *s1, const char *s2);

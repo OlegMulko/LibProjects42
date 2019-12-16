@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getenv.c                                        :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmarti <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 14:02:05 by aashara-          #+#    #+#             */
-/*   Updated: 2019/11/24 19:56:55 by aashara-         ###   ########.fr       */
+/*   Created: 2019/12/16 00:42:23 by mmarti            #+#    #+#             */
+/*   Updated: 2019/12/16 00:42:24 by mmarti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libdar.h"
+#include "libft.h"
 
-char			*ft_getenv(char *name, char **env)
+void	*ft_realloc(void *buf, size_t old, size_t new_size)
 {
-	char *tmp;
-	if (!name || !*name)
+	unsigned char	*new_buf;
+
+	if (!(new_buf = (unsigned char *)ft_memalloc(new_size)))
 		return (NULL);
-	while (*env)
-	{
-		tmp = ft_strchr(*env, '=');
-		if (!ft_strncmp(name, *env, tmp - *env))
-			return (tmp + 1);
-		env++;
-	}
-	return (NULL);
+	if (buf)
+		ft_memcpy(new_buf, buf, old);
+	return (new_buf);
 }
