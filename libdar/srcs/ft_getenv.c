@@ -12,17 +12,21 @@
 
 #include "libdar.h"
 
-char			*ft_getenv(char *name, char **env)
+char			*ft_getenv(char *name, char **varlist)
 {
-	char *tmp;
+	char	*tmp;
+	long	varlen;
+
 	if (!name || !*name)
 		return (NULL);
-	while (*env)
+	while (*varlist)
 	{
-		tmp = ft_strchr(*env, '=');
-		if (!ft_strncmp(name, *env, tmp - *env))
+		tmp = ft_strchr(*varlist, '=');
+		varlen = tmp - *varlist;
+		if ((long)ft_strlen(name) == varlen &&
+		!ft_strncmp(name, *varlist, varlen))
 			return (tmp + 1);
-		env++;
+		varlist++;
 	}
 	return (NULL);
 }
