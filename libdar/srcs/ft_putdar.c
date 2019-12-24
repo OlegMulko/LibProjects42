@@ -18,5 +18,8 @@ void	ft_putdar(char **arr)
 
 	j = -1;
 	while (arr[++j])
+	{
 		ft_putstr(arr[j]);
+		ft_putchar('\n');
+	}
 }
