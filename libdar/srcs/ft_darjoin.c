@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 23:20:54 by aashara-          #+#    #+#             */
-/*   Updated: 2020/01/16 23:27:25 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/01/18 17:46:55 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	**ft_darjoin(char **first, char **second)
 	int		j;
 
 	res = NULL;
-	if (!first && !second)
+	if (first || second)
 	{
 		if (!(res = ft_darnew(ft_darlen(first) + ft_darlen(second))))
 			return (NULL);
