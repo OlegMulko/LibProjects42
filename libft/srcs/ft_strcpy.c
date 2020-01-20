@@ -6,7 +6,7 @@
 /*   By: aashara- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 19:01:44 by aashara-          #+#    #+#             */
-/*   Updated: 2018/11/23 19:36:28 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/01/20 22:54:44 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strcpy(char *destination, const char *source)
 	int		i;
 	char	*pointer1;
 
+	if (!sourse)
+		return (destination);
 	i = 0;
 	pointer1 = destination;
 	while (source[i] != '\0')
