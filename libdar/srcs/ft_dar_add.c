@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dar_add.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 17:19:43 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/11 17:19:45 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/01/21 18:30:40 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ char	**ft_dar_add(char **dest, char **src, char **exc)
 		return (NULL);
 	len = ft_darlen(dest);
 	len += ft_darlen(src);
-	CHECK((dar = (char **)malloc(sizeof(char *) * (len + 1))));
+	if (!(dar = (char **)malloc(sizeof(char *) * (len + 1))))
+		return (NULL);
 	i = (dest) ? -1 : 0;
 	if (dest)
 		while (dest[++i])

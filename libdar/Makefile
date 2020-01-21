@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2020/01/16 23:26:56 by aashara-         ###   ########.fr        #
+#    Updated: 2020/01/21 18:25:14 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ srcs_files := ft_check_exec.c\
 			ft_getenv.c\
 			ft_dar2str.c\
 			ft_darjoin.c\
+			ft_dar_quick_sort.c\
 
 obj_files := $(srcs_files:.c=.o)
 
