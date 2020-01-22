@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2019/10/06 21:16:23 by aashara-         ###   ########.fr        #
+#    Updated: 2020/01/22 16:12:40 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,9 @@ srcs_files := ft_strlen.c\
 		get_next_line.c\
 		ft_isspace.c\
 		ft_swap.c\
-		ft_realloc.c
+		ft_realloc.c\
+		ft_min.c\
+		ft_max.c\
 
 obj_files := $(srcs_files:.c=.o)
 
