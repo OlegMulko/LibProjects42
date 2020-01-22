@@ -6,13 +6,13 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 18:24:23 by aashara-          #+#    #+#             */
-/*   Updated: 2020/01/22 21:50:27 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/01/22 21:56:33 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libdar.h"
 
-void	ft_dar_quick_sort(char **res)
+void	ft_dar_sort(char **res)
 {
 	size_t	i;
 	char	*tmp;
