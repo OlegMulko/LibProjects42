@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 18:24:23 by aashara-          #+#    #+#             */
-/*   Updated: 2020/01/22 21:56:33 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/01/23 20:57:15 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_dar_sort(char **res)
 	size_t	i;
 	char	*tmp;
 
+	if (!res || !*res)
+		return ;
 	i = 0;
 	while (res[i + 1])
 	{
