@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/03 11:46:19 by olegmulko         #+#    #+#              #
-#    Updated: 2019/09/17 13:58:03 by aashara-         ###   ########.fr        #
+#    Updated: 2020/01/24 19:17:44 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ libhash := libhash
 
 lib_dir := lib_archive
 
-.PHONY: all lall lclean lfclean fclean create_dir
+.PHONY: all lall lclean lfclean fclean $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo) $(libhash)
 
 all: $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo) $(lib_dir) $(libhash)
 
