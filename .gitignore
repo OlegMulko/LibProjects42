@@ -6,6 +6,8 @@ lib_archive/
 /*/obj
 # ignore all files .o
 *.o
+# ignore all files .d
+*.d
 # ignore all files .a
 *.a
 #ignore vscode files
