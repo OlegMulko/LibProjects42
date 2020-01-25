@@ -6,64 +6,71 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2020/01/24 22:25:54 by aashara-         ###   ########.fr        #
+#    Updated: 2020/01/25 19:48:20 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-name := libdar.a
+# ------------  PROJECT  ----------------------------------------------------- #
+NAME	=		libdar.a
 
-srcs_dir := srcs
+# ------------  DIRECTORIES  ------------------------------------------------- #
+SRC_DIR	=		srcs
+HDR_DIR	=		includes
+OBJ_DIR	=		objs
 
-obj_dir := obj
+# ------------  LIBFT  ------------------------------------------------------- #
+LFT_DIR	=		../libft
+LHS_DIR	=		$(LFT_DIR)/includes
 
-srcs_files := ft_check_exec.c\
-			ft_dar_add.c\
-			ft_darlen.c\
-			ft_free_dar.c\
-			ft_dardup.c\
-			ft_darnew.c\
-			ft_putdar.c\
-			ft_putdar_fd.c\
-			ft_getenv.c\
-			ft_dar2str.c\
-			ft_darjoin.c\
-			ft_dar_sort.c\
+# ------------  SOURCE FILES  ------------------------------------------------ #
+SRC_FLS	=		ft_check_exec.c\
+				ft_dar_add.c\
+				ft_darlen.c\
+				ft_free_dar.c\
+				ft_dardup.c\
+				ft_darnew.c\
+				ft_putdar.c\
+				ft_putdar_fd.c\
+				ft_getenv.c\
+				ft_dar2str.c\
+				ft_darjoin.c\
+				ft_dar_sort.c\
 
-obj_files := $(srcs_files:.c=.o)
+HDR_FLS =		libdar.h
 
-objs := $(addprefix $(obj_dir)/, $(obj_files))
+# ------------  FILEPATHS  --------------------------------------------------- #
+SRCS	=		$(addprefix $(SRC_DIR)/, $(SRC_FLS))
+OBJS	=		$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o, $(SRCS))
+HDRS	=		$(addprefix $(HDR_DIR)/, $(HDR_FLS))
+DEPS	=		$(OBJS:.o=.d)
 
-header := includes/libdar.h
+# ------------  FLAGS  ------------------------------------------------------- #
+CC		=		gcc
+RM		=		rm -rf
+CFLGS	=		-Wall -Werror -Wextra
+IFLGS	=		-I $(HDR_DIR) -I $(LHS_DIR)
+DFLGS	=		-MMD
 
-includes := -I ./includes -I ../libft/includes
+# ------------  RULES  ------------------------------------------------------- #
+.PHONY: all clean fclean re
 
-cc := gcc
+all: $(NAME)
 
-cflags := -Wall -Wextra -Werror
+-include $(DEPS)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HDRS) | $(OBJ_DIR)
+	$(CC) $(CFLGS) $(DFLGS) -c -o $@ $< $(IFLGS)
 
-.PHONY: all $(name) clean fclean re
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
-all: $(name)
-
-$(name): $(obj_dir) $(objs)
-	@ar rc $(name) $(objs)
-	@ranlib $(name)
-	@echo "\033[32mFinish $(name) compilation\033[0m"
-
-$(obj_dir):
-	@mkdir -p $(obj_dir)
-
-$(obj_dir)/%.o: $(srcs_dir)/%.c $(header)
-	@$(cc) $(cflags) $(includes) -o $@ -c $<
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
 clean:
-	@-rm -rf $(obj_dir)
+	$(RM) $(OBJ_DIR)
 
-fclean:
-	@$(MAKE) --no-print-directory clean
-	@-rm -rf $(name)
-	@echo "\033[31mRemove $(name)\033[0m"
+fclean: clean
+	$(RM) $(NAME)
 
-re:
-	@$(MAKE) --no-print-directory fclean
-	@$(MAKE) --no-print-directory all
+re: fclean all
