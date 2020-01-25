@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2020/01/25 19:48:35 by aashara-         ###   ########.fr        #
+#    Updated: 2020/01/25 20:10:28 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC_FLS	=		ft_dir_flag.c\
 				ft_file_type.c\
 				ft_write_to_file.c\
 				ft_read_file.c\
+				ft_size_dir.c\
 
 HDR_FLS =		libdir.h
 
