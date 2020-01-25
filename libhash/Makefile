@@ -6,60 +6,67 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/17 13:54:22 by aashara-          #+#    #+#              #
-#    Updated: 2020/01/24 22:26:54 by aashara-         ###   ########.fr        #
+#    Updated: 2020/01/25 19:49:39 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-name := libhash.a
+# ------------  PROJECT  ----------------------------------------------------- #
+NAME	=		libhash.a
 
-srcs_dir := srcs
+# ------------  DIRECTORIES  ------------------------------------------------- #
+SRC_DIR	=		srcs
+HDR_DIR	=		includes
+OBJ_DIR	=		objs
 
-obj_dir := obj
+# ------------  LIBFT  ------------------------------------------------------- #
+LFT_DIR	=		../libft
+LHS_DIR	=		$(LFT_DIR)/includes
 
-srcs_files := free_hash_table.c\
-		init_hash_table.c\
-		init_hash.c\
-		hash_index.c\
-		djb2_hash_function.c\
-		push_hash.c\
-		get_hash_data.c\
+# ------------  SOURCE FILES  ------------------------------------------------ #
+SRC_FLS	=		free_hash_table.c\
+				init_hash_table.c\
+				init_hash.c\
+				hash_index.c\
+				djb2_hash_function.c\
+				push_hash.c\
+				get_hash_data.c\
 
 
-obj_files := $(srcs_files:.c=.o)
+HDR_FLS =		libhash.h
 
-objs := $(addprefix $(obj_dir)/, $(obj_files))
+# ------------  FILEPATHS  --------------------------------------------------- #
+SRCS	=		$(addprefix $(SRC_DIR)/, $(SRC_FLS))
+OBJS	=		$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o, $(SRCS))
+HDRS	=		$(addprefix $(HDR_DIR)/, $(HDR_FLS))
+DEPS	=		$(OBJS:.o=.d)
 
-header := includes/libhash.h
+# ------------  FLAGS  ------------------------------------------------------- #
+CC		=		gcc
+RM		=		rm -rf
+CFLGS	=		-Wall -Werror -Wextra
+IFLGS	=		-I $(HDR_DIR) -I $(LHS_DIR)
+DFLGS	=		-MMD
 
-includes := -I ./includes -I ../libft/includes
+# ------------  RULES  ------------------------------------------------------- #
+.PHONY: all clean fclean re
 
-cc := gcc
+all: $(NAME)
 
-cflags := -Wall -Wextra -Werror
+-include $(DEPS)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HDRS) | $(OBJ_DIR)
+	$(CC) $(CFLGS) $(DFLGS) -c -o $@ $< $(IFLGS)
 
-.PHONY: all $(name) clean fclean re
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
-all: $(name)
-
-$(name): $(obj_dir) $(objs)
-	@ar rc $(name) $(objs)
-	@ranlib $(name)
-	@echo "\033[32mFinish $(name) compilation\033[0m"
-
-$(obj_dir):
-	@mkdir -p $(obj_dir)
-
-$(obj_dir)/%.o: $(srcs_dir)/%.c $(header)
-	@$(cc) $(cflags) $(includes) -o $@ -c $<
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
 clean:
-	@-rm -rf $(obj_dir)
+	$(RM) $(OBJ_DIR)
 
-fclean:
-	@$(MAKE) --no-print-directory clean
-	@-rm -rf $(name)
-	@echo "\033[31mRemove $(name)\033[0m"
+fclean: clean
+	$(RM) $(NAME)
 
-re:
-	@$(MAKE) --no-print-directory fclean
-	@$(MAKE) --no-print-directory all
+re: fclean all

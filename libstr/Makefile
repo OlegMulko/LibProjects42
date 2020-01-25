@@ -6,62 +6,68 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2020/01/24 22:27:07 by aashara-         ###   ########.fr        #
+#    Updated: 2020/01/25 19:50:18 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-name := libstr.a
+# ------------  PROJECT  ----------------------------------------------------- #
+NAME	=		libstr.a
 
-srcs_dir := srcs
+# ------------  DIRECTORIES  ------------------------------------------------- #
+SRC_DIR	=		srcs
+HDR_DIR	=		includes
+OBJ_DIR	=		objs
 
-obj_dir := obj
+# ------------  LIBFT  ------------------------------------------------------- #
+LFT_DIR	=		../libft
+LHS_DIR	=		$(LFT_DIR)/includes
 
-srcs_files := ft_get_cnt_words.c\
-			ft_is_str_contain.c\
-			ft_last_word_pos.c\
-			ft_del_sym_str.c\
-			ft_match.c\
-			ft_num_match.c\
-			ft_strdel_el.c\
-			ft_strdup_realloc.c\
-			ft_stradd.c\
+# ------------  SOURCE FILES  ------------------------------------------------ #
+SRC_FLS	=		ft_get_cnt_words.c\
+				ft_is_str_contain.c\
+				ft_last_word_pos.c\
+				ft_del_sym_str.c\
+				ft_match.c\
+				ft_num_match.c\
+				ft_strdel_el.c\
+				ft_strdup_realloc.c\
+				ft_stradd.c\
 
-obj_files := $(srcs_files:.c=.o)
 
-objs := $(addprefix $(obj_dir)/, $(obj_files))
+HDR_FLS=		libstr.h
 
-header := includes/libstr.h
+# ------------  FILEPATHS  --------------------------------------------------- #
+SRCS	=		$(addprefix $(SRC_DIR)/, $(SRC_FLS))
+OBJS	=		$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o, $(SRCS))
+DEPS	=		$(OBJS:.o=.d)
 
-includes := -I ./includes -I ../libft/includes
+# ------------  FLAGS  ------------------------------------------------------- #
+CC		=		gcc
+RM		=		rm -rf
+CFLGS	=		-Wall -Werror -Wextra
+IFLGS	=		-I $(HDR_DIR) -I $(LHS_DIR)
+DFLGS	=		-MMD
 
-cc := gcc
+# ------------  RULES  ------------------------------------------------------- #
+.PHONY: all clean fclean re
 
-cflags := -Wall -Wextra -Werror
+all: $(NAME)
 
-.PHONY: all $(name) clean fclean re
+-include $(DEPS)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HDR_DIR)/$(HDR_FLS) | $(OBJ_DIR)
+	$(CC) $(CFLGS) $(DFLGS) -c -o $@ $< $(IFLGS)
 
-all: $(name)
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
-$(name): $(obj_dir) $(objs)
-	@ar rc $(name) $(objs)
-	@ranlib $(name)
-	@echo "\033[32mFinish $(name) compilation\033[0m"
-
-$(obj_dir):
-	@mkdir -p $(obj_dir)
-
-$(obj_dir)/%.o: $(srcs_dir)/%.c $(header)
-	@$(cc) $(cflags) $(includes) -o $@ -c $<
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
 clean:
-	@-rm -rf $(obj_dir)
+	$(RM) $(OBJ_DIR)
 
-fclean:
-	@$(MAKE) --no-print-directory clean
-	@-rm -rf $(name)
-	@echo "\033[31mRemove $(name)\033[0m"
+fclean: clean
+	$(RM) $(NAME)
 
-re:
-	@$(MAKE) --no-print-directory fclean
-	@$(MAKE) --no-print-directory all
-
+re: fclean all

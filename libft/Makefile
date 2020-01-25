@@ -6,116 +6,120 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2020/01/24 22:26:48 by aashara-         ###   ########.fr        #
+#    Updated: 2020/01/25 19:49:15 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-name := libft.a
+# ------------  PROJECT  ----------------------------------------------------- #
+NAME	=		libft.a
 
-srcs_dir := srcs
+# ------------  DIRECTORIES  ------------------------------------------------- #
+SRC_DIR	=		srcs
+HDR_DIR	=		includes
+OBJ_DIR	=		objs
 
-obj_dir := obj
+# ------------  SOURCE FILES  ------------------------------------------------ #
+SRC_FLS	=		ft_strlen.c\
+				ft_strdup.c\
+				ft_strcmp.c\
+				ft_memset.c\
+				ft_bzero.c\
+				ft_memcpy.c\
+				ft_memccpy.c\
+				ft_memmove.c\
+				ft_memchr.c\
+				ft_memcmp.c\
+				ft_strcpy.c\
+				ft_strncpy.c\
+				ft_strcat.c\
+				ft_strchr.c\
+				ft_strrchr.c\
+				ft_strstr.c\
+				ft_strnstr.c\
+				ft_strncmp.c\
+				ft_atoi.c\
+				ft_isdigit.c\
+				ft_isalpha.c\
+				ft_isalnum.c\
+				ft_isascii.c\
+				ft_isprint.c\
+				ft_toupper.c\
+				ft_tolower.c\
+				ft_memalloc.c\
+				ft_memdel.c\
+				ft_strnew.c\
+				ft_strdel.c\
+				ft_strclr.c\
+				ft_striter.c\
+				ft_striteri.c\
+				ft_strmap.c\
+				ft_strmapi.c\
+				ft_strequ.c\
+				ft_strnequ.c\
+				ft_strsub.c\
+				ft_strjoin.c\
+				ft_strtrim.c\
+				ft_strsplit.c\
+				ft_putchar.c\
+				ft_putstr.c\
+				ft_putnbr.c\
+				ft_putchar_fd.c\
+				ft_putstr_fd.c\
+				ft_putendl_fd.c\
+				ft_putendl.c\
+				ft_putnbr_fd.c\
+				ft_itoa.c\
+				ft_strlcat.c\
+				ft_strncat.c\
+				ft_lstnew.c\
+				ft_lstdelone.c\
+				ft_lstdel.c\
+				ft_lstadd.c\
+				ft_lstiter.c\
+				ft_lstmap.c\
+				get_next_line.c\
+				ft_isspace.c\
+				ft_swap.c\
+				ft_realloc.c\
+				ft_min.c\
+				ft_max.c\
 
-srcs_files := ft_strlen.c\
-		ft_strdup.c\
-		ft_strcmp.c\
-		ft_memset.c\
-		ft_bzero.c\
-		ft_memcpy.c\
-		ft_memccpy.c\
-		ft_memmove.c\
-		ft_memchr.c\
-		ft_memcmp.c\
-		ft_strcpy.c\
-		ft_strncpy.c\
-		ft_strcat.c\
-		ft_strchr.c\
-		ft_strrchr.c\
-		ft_strstr.c\
-		ft_strnstr.c\
-		ft_strncmp.c\
-		ft_atoi.c\
-		ft_isdigit.c\
-		ft_isalpha.c\
-		ft_isalnum.c\
-		ft_isascii.c\
-		ft_isprint.c\
-		ft_toupper.c\
-		ft_tolower.c\
-		ft_memalloc.c\
-		ft_memdel.c\
-		ft_strnew.c\
-		ft_strdel.c\
-		ft_strclr.c\
-		ft_striter.c\
-		ft_striteri.c\
-		ft_strmap.c\
-		ft_strmapi.c\
-		ft_strequ.c\
-		ft_strnequ.c\
-		ft_strsub.c\
-		ft_strjoin.c\
-		ft_strtrim.c\
-		ft_strsplit.c\
-		ft_putchar.c\
-		ft_putstr.c\
-		ft_putnbr.c\
-		ft_putchar_fd.c\
-		ft_putstr_fd.c\
-		ft_putendl_fd.c\
-		ft_putendl.c\
-		ft_putnbr_fd.c\
-		ft_itoa.c\
-		ft_strlcat.c\
-		ft_strncat.c\
-		ft_lstnew.c\
-		ft_lstdelone.c\
-		ft_lstdel.c\
-		ft_lstadd.c\
-		ft_lstiter.c\
-		ft_lstmap.c\
-		get_next_line.c\
-		ft_isspace.c\
-		ft_swap.c\
-		ft_realloc.c\
-		ft_min.c\
-		ft_max.c\
+HDR_FLS =		libft.h\
+				get_next_line.h
 
-obj_files := $(srcs_files:.c=.o)
+# ------------  FILEPATHS  --------------------------------------------------- #
+SRCS	=		$(addprefix $(SRC_DIR)/, $(SRC_FLS))
+OBJS	=		$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o, $(SRCS))
+HDRS	=		$(addprefix $(HDR_DIR)/, $(HDR_FLS))
+DEPS	=		$(OBJS:.o=.d)
 
-objs := $(addprefix $(obj_dir)/, $(obj_files))
+# ------------  FLAGS  ------------------------------------------------------- #
+CC		=		gcc
+RM		=		rm -rf
+CFLGS	=		-Wall -Werror -Wextra
+IFLGS	=		-I $(HDR_DIR)
+DFLGS	=		-MMD
 
-header := includes/libft.h includes/get_next_line.h
+# ------------  RULES  ------------------------------------------------------- #
+.PHONY: all clean fclean re
 
-includes := -I includes
+all: $(NAME)
 
-cc := gcc
+-include $(DEPS)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HDRS) | $(OBJ_DIR)
+	$(CC) $(CFLGS) $(DFLGS) -c -o $@ $< $(IFLGS)
 
-cflags := -Wall -Wextra -Werror
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
-.PHONY: all $(name) clean fclean re
-
-all: $(name)
-
-$(name): $(obj_dir) $(objs)
-	@ar rc $(name) $(objs)
-	@ranlib $(name)
-	@echo "\033[32mFinish $(name) compilation\033[0m"
-
-$(obj_dir):
-	@mkdir -p $(obj_dir)
-
-$(obj_dir)/%.o: $(srcs_dir)/%.c $(header)
-	@$(cc) $(cflags) $(includes) -o $@ -c $<
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
 clean:
-	@-rm -rf $(obj_dir)
+	$(RM) $(OBJ_DIR)
 
-fclean:
-	@$(MAKE) --no-print-directory clean
-	@-rm -rf $(name)
-	@echo "\033[31mRemove $(name)\033[0m"
+fclean: clean
+	$(RM) $(NAME)
 
-re:
-	@$(MAKE) --no-print-directory fclean
-	@$(MAKE) --no-print-directory all
+re: fclean all
