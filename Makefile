@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/03 11:46:19 by olegmulko         #+#    #+#              #
-#    Updated: 2020/01/25 19:47:51 by aashara-         ###   ########.fr        #
+#    Updated: 2020/01/26 15:44:56 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,9 @@ libfifo := libfifo
 
 libhash := libhash
 
-lib_dir := lib_archive
+.PHONY: all clean fclean $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo) $(libhash)
 
-.PHONY: all lall lclean lfclean fclean $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo) $(libhash)
-
-all: $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo) $(libhash) $(lib_dir)
+all: $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo) $(libhash)
 
 $(libft):
 	@$(MAKE) --no-print-directory -C $(libft)
@@ -51,21 +49,7 @@ $(libfifo):
 $(libhash):
 	@$(MAKE) --no-print-directory -C $(libhash)
 
-$(lib_dir): $(libft) $(libstr) $(libdir) $(libdar) $(libstack) $(libfifo) $(libhash)
-	@mkdir -p $(lib_dir)
-	@cp $(libft)/$(libft).a $(libstr)/$(libstr).a $(libdir)/$(libdir).a \
-	$(libdar)/$(libdar).a $(libstack)/$(libstack).a $(libfifo)/$(libfifo).a $(libhash)/$(libhash).a $(lib_dir)
-
-lall:
-	@$(MAKE) all --no-print-directory -C  $(libft)
-	@$(MAKE) all --no-print-directory -C  $(libstr)
-	@$(MAKE) all --no-print-directory -C  $(libdir)
-	@$(MAKE) all --no-print-directory -C  $(libdar)
-	@$(MAKE) all --no-print-directory -C  $(libstack)
-	@$(MAKE) all --no-print-directory -C  $(libfifo)
-	@$(MAKE) all --no-print-directory -C  $(libhash)
-
-lclean:
+clean:
 	@$(MAKE) clean --no-print-directory -C  $(libft)
 	@$(MAKE) clean --no-print-directory -C  $(libstr)
 	@$(MAKE) clean --no-print-directory -C  $(libdir)
@@ -74,7 +58,7 @@ lclean:
 	@$(MAKE) clean --no-print-directory -C  $(libfifo)
 	@$(MAKE) clean --no-print-directory -C  $(libhash)
 
-lfclean:
+fclean:
 	@$(MAKE) fclean --no-print-directory -C  $(libft)
 	@$(MAKE) fclean --no-print-directory -C  $(libstr)
 	@$(MAKE) fclean --no-print-directory -C  $(libdir)
@@ -82,9 +66,5 @@ lfclean:
 	@$(MAKE) fclean --no-print-directory -C  $(libstack)
 	@$(MAKE) fclean --no-print-directory -C  $(libfifo)
 	@$(MAKE) fclean --no-print-directory -C  $(libhash)
-
-fclean:
-	@$(MAKE) --no-print-directory lfclean
-	@rm -rf $(lib_dir)
 
 re: fclean all

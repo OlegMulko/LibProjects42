@@ -12,7 +12,7 @@ During the execution of the projects in school 42(school 21 Moscow) I had to wri
 * libstr - library contains functions for manipulation with string(pointer to char).
 
 ## Compilation
-* `make` - Complete compilation of all libraries with creating a directory with the archive.
+* `make` - Complete compilation of all libraries.
 * `make libft` - Compilation libft.
 * `make libdir`- Compilation libdir.
 * `make libfifo`- Compilation libfifo.
@@ -20,11 +20,9 @@ During the execution of the projects in school 42(school 21 Moscow) I had to wri
 * `make libhash` - Compilation libhash.
 * `make libstack` - Compilation libstack.
 * `make libstr` - Compilation libstr.
-* `make lall` - Complete compilation of all libraries without creating a directory with the archive.
-* `make lclean` - cleaning libraries directories(removing objects directory without library in every library directory).
-* `make lfclean` - full cleaning libraries directories(removing objects directory with library in every library directory).
-* `make fclean` - full cleaning library archieve directory(removing libraries archieve and objects directory with library in every library directory).
-* `make re` - removing all intermediate files and after that libraries archive compilation.
+* `make clean` - cleaning libraries directories(removing objects directory without library in every library directory).
+* `make fclean` - full cleaning libraries directories(removing objects directory with library in every library directory).
+* `make re` - removing all intermediate files and after that libraries compilation.
 
 ## Usage
 
