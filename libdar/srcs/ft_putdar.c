@@ -16,6 +16,8 @@ void	ft_putdar(char **arr)
 {
 	int	j;
 
+	if (!arr)
+		return ;
 	j = -1;
 	while (arr[++j])
 	{
