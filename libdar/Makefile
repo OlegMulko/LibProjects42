@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2020/01/25 19:48:20 by aashara-         ###   ########.fr        #
+#    Updated: 2020/02/02 21:19:45 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ SRC_FLS	=		ft_check_exec.c\
 				ft_darnew.c\
 				ft_putdar.c\
 				ft_putdar_fd.c\
-				ft_getenv.c\
 				ft_dar2str.c\
 				ft_darjoin.c\
 				ft_dar_sort.c\
