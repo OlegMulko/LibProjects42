@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2020/01/25 19:49:15 by aashara-         ###   ########.fr        #
+#    Updated: 2020/02/02 21:19:54 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ SRC_FLS	=		ft_strlen.c\
 				ft_realloc.c\
 				ft_min.c\
 				ft_max.c\
+				ft_getenv.c\
 
 HDR_FLS =		libft.h\
 				get_next_line.h
