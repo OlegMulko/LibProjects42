@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:42:59 by aashara-          #+#    #+#             */
-/*   Updated: 2020/02/02 21:20:21 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/02/03 19:10:30 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <string.h>
 # include "get_next_line.h"
 
-# define LLONG_MAX 9223372036854775807
-# define ULLONG_MAX 18446744073709551615ULL
+# define FT_LLONG_MAX 9223372036854775807
+# define FT_ULLONG_MAX 18446744073709551615ULL
 
 typedef struct	s_list
 {

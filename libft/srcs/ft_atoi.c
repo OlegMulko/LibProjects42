@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 19:39:28 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/25 17:56:48 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/02/03 19:10:35 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			ft_atoi(const char *str)
 		res *= 10;
 		res += *str - '0';
 		str++;
-		if (res > LLONG_MAX || (res < ULLONG_MAX && ++s_len >= 20))
+		if (res > FT_LLONG_MAX || (res < FT_ULLONG_MAX && ++s_len >= 20))
 			return (sign == 1 ? -1 : 0);
 	}
 	return (sign * (int)res);
