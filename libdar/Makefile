@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2020/02/03 16:15:38 by aashara-         ###   ########.fr        #
+#    Updated: 2020/02/03 19:11:01 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ IFLGS	=		-I $(HDR_DIR) -I $(LHS_DIR)
 DFLGS	=		-MMD -MP
 
 # ------------  RULES  ------------------------------------------------------- #
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re 
 
 all: $(NAME)
 
