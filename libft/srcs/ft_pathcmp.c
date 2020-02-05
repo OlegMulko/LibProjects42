@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_pathcmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/04 13:03:47 by aashara-          #+#    #+#             */
-/*   Updated: 2020/02/05 13:54:42 by aashara-         ###   ########.fr       */
+/*   Created: 2019/12/23 17:43:02 by mmarti            #+#    #+#             */
+/*   Updated: 2020/02/05 14:43:14 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-# define BUFF_SIZE 20
-
-int		get_next_line(const int fd, char **line);
-#endif
+int			ft_pathcmp(char *p1, char *p2)
+{
+	while (*p1 && *p1 == *p2)
+	{
+		p1++;
+		p2++;
+		if (*p1 == '/' || *p2 == '/')
+		{
+			while (*p1 == '/')
+				p1++;
+			while (*p2 == '/')
+				p2++;
+			continue ;
+		}
+	}
+	return (*p1 - *p2);
+}
