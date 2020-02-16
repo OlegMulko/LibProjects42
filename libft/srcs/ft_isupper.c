@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putdar.c                                        :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggrimes <ggrimes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/22 18:02:56 by aashara-          #+#    #+#             */
-/*   Updated: 2019/09/22 20:22:11 by aashara-         ###   ########.fr       */
+/*   Created: 2020/02/16 13:26:23 by ggrimes           #+#    #+#             */
+/*   Updated: 2020/02/16 13:44:23 by ggrimes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libdar.h"
+#include "libft.h"
 
-void	ft_putdar(char **arr)
+int ft_isupper(char c)
 {
-	int	j;
-
-	if (!arr)
-		return ;
-	j = -1;
-	while (arr[++j])
-	{
-		ft_putstr(arr[j]);
-		ft_putchar('\n');
-	}
+    if (c >= 'A' && c <= 'Z')
+        return (1);
+    return (0);
 }
