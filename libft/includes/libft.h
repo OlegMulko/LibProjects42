@@ -92,5 +92,6 @@ int 			ft_isupper(char c);
 void			ft_swap(int *start, int *end);
 int				ft_min(int a, int b);
 int				ft_max(int a, int b);
-char			*ft_getenv(char *name, char **env);
+int				ft_pathcmp(char *p1, char *p2);
+char			*ft_pathjoin(char *s1, char *s2);
 #endif

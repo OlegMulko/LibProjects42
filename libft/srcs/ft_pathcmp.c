@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getenv.c                                        :+:      :+:    :+:   */
+/*   ft_pathcmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 14:02:05 by aashara-          #+#    #+#             */
-/*   Updated: 2020/02/02 21:20:42 by aashara-         ###   ########.fr       */
+/*   Created: 2019/12/23 17:43:02 by mmarti            #+#    #+#             */
+/*   Updated: 2020/02/05 14:43:14 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_getenv(char *name, char **varlist)
+int			ft_pathcmp(char *p1, char *p2)
 {
-	char	*tmp;
-	long	varlen;
-
-	if (!name || !*name)
-		return (NULL);
-	while (*varlist)
+	while (*p1 && *p1 == *p2)
 	{
-		tmp = ft_strchr(*varlist, '=');
-		varlen = tmp - *varlist;
-		if ((long)ft_strlen(name) == varlen &&
-		!ft_strncmp(name, *varlist, varlen))
-			return (tmp + 1);
-		varlist++;
+		p1++;
+		p2++;
+		if (*p1 == '/' || *p2 == '/')
+		{
+			while (*p1 == '/')
+				p1++;
+			while (*p2 == '/')
+				p2++;
+			continue ;
+		}
 	}
-	return (NULL);
+	return (*p1 - *p2);
 }

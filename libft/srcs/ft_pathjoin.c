@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_pathjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/04 13:03:47 by aashara-          #+#    #+#             */
-/*   Updated: 2020/02/05 13:54:42 by aashara-         ###   ########.fr       */
+/*   Created: 2019/12/04 22:57:29 by mmarti            #+#    #+#             */
+/*   Updated: 2020/02/05 14:43:33 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+char	*ft_pathjoin(char *s1, char *s2)
+{
+	char			*str;
+	unsigned int	i;
 
-# define BUFF_SIZE 20
-
-int		get_next_line(const int fd, char **line);
-#endif
+	i = 0;
+	if (s1 == 0 || s2 == 0)
+		return (0);
+	if (!(str = (char *)ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 2)))
+		return (0);
+	while (*s1)
+		str[i++] = *s1++;
+	if (*--s1 != '/' && *s2 != '/')
+		str[i++] = '/';
+	while (*s2)
+		str[i++] = *s2++;
+	return (str);
+}

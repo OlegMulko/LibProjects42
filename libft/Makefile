@@ -84,15 +84,12 @@ SRC_FLS	=		ft_strlen.c\
 				ft_realloc.c\
 				ft_min.c\
 				ft_max.c\
-				ft_getenv.c\
-
-HDR_FLS =		libft.h\
-				get_next_line.h
+				ft_pathjoin.c\
+				ft_pathcmp.c\
 
 # ------------  FILEPATHS  --------------------------------------------------- #
 SRCS	=		$(addprefix $(SRC_DIR)/, $(SRC_FLS))
 OBJS	=		$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o, $(SRCS))
-HDRS	=		$(addprefix $(HDR_DIR)/, $(HDR_FLS))
 DEPS	=		$(OBJS:.o=.d)
 
 # ------------  FLAGS  ------------------------------------------------------- #
@@ -108,7 +105,7 @@ DFLGS	=		-MMD -MP
 all: $(NAME)
 
 -include $(DEPS)
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HDRS) | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLGS) $(DFLGS) -c -o $@ $< $(IFLGS)
 
 $(OBJ_DIR):
